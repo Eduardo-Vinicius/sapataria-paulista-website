@@ -8,22 +8,22 @@ const services = [
   {
     title: "Tenis de Luxo",
     description: "Limpeza profunda, restauracao estrutural e acabamento premium.",
-    image: "/images/service-sneakers.jpg",
+    image: "/images/especialidade-tenis-luxo.png",
   },
   {
     title: "Sapatos & Couro",
     description: "Polimento, tingimento e restauracao completa de couro fino.",
-    image: "/images/service-shoes.jpg",
+    image: "/images/especialidade-sapatos-couro.png",
   },
   {
     title: "Bolsas & Acessorios",
     description: "Cuidado especializado para bolsas e acessorios de grife.",
-    image: "/images/service-bags.jpg",
+    image: "/images/especialidade-bolsas-acessorios.png",
   },
   {
     title: "Higienizacao",
     description: "Limpeza profunda que revitaliza sem comprometer a integridade.",
-    image: "/images/service-cleaning.jpg",
+    image: "/images/especialidade-higienizacao.png",
   },
 ]
 

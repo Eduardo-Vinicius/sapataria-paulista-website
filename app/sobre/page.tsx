@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Shield, Target, Eye, Wrench } from "lucide-react"
+import { FounderStory } from "@/components/home/founder-story"
 
 const values = [
   {
@@ -52,13 +53,16 @@ export default function SobrePage() {
         </div>
       </section>
 
+      {/* Founder highlight */}
+      <FounderStory />
+
       {/* Story */}
       <section className="px-6 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="animate-on-scroll flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
             <div className="relative aspect-[4/3] w-full overflow-hidden lg:w-1/2">
               <Image
-                src="/images/atelier-interior.jpg"
+                src="/images/capa2.png"
                 alt="Interior do atelier Sapataria Paulista"
                 fill
                 className="object-cover"
@@ -95,7 +99,7 @@ export default function SobrePage() {
           <div className="animate-on-scroll flex flex-col gap-12 lg:flex-row-reverse lg:items-center lg:gap-16">
             <div className="relative aspect-[4/3] w-full overflow-hidden lg:w-1/2">
               <Image
-                src="/images/hero-atelier.jpg"
+                src="/images/nosso-espaco-3.jpg"
                 alt="Artesao trabalhando em restauracao"
                 fill
                 className="object-cover"

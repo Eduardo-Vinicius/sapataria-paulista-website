@@ -9,7 +9,7 @@ import { ChevronDown } from "lucide-react"
 const services = [
   {
     category: "Limpeza & Higienizacao Premium",
-    image: "/images/service-cleaning.jpg",
+    image: "/images/especialidade-higienizacao.png",
     description:
       "Processo exclusivo de limpeza profunda que remove sujeira, manchas e odores sem comprometer a integridade dos materiais. Utilizamos produtos importados de alta performance.",
     details: [
@@ -22,7 +22,7 @@ const services = [
   },
   {
     category: "Restauracao Estrutural",
-    image: "/images/service-sneakers.jpg",
+    image: "/images/restauracao-estrutural.png",
     description:
       "Reconstrucao e reparo de partes danificadas, como entressolas, costuras, palmilhas e estruturas internas. Devolvemos a forma e funcionalidade original do seu item.",
     details: [
@@ -35,7 +35,7 @@ const services = [
   },
   {
     category: "Troca & Ajuste de Solado",
-    image: "/images/service-shoes.jpg",
+    image: "/images/troca-solado.png",
     description:
       "Substituicao e ajuste de solados desgastados. Trabalhamos com materiais de alta qualidade para garantir durabilidade e acabamento impecavel.",
     details: [
@@ -48,7 +48,7 @@ const services = [
   },
   {
     category: "Pintura & Revitalizacao",
-    image: "/images/service-dyeing.jpg",
+    image: "/images/pintura.png",
     description:
       "Restauracao de cor e acabamento com tintas e pigmentos profissionais. Personalizacao de cores e efeitos sob medida para cada material.",
     details: [
@@ -61,7 +61,7 @@ const services = [
   },
   {
     category: "Couro & Acabamentos",
-    image: "/images/service-bags.jpg",
+    image: "/images/especialidade-sapatos-couro.png",
     description:
       "Tratamento especializado para artigos de couro fino: bolsas, carteiras, cintos e acessorios de grife. Restauracao que respeita o material e a identidade da peca.",
     details: [
@@ -191,6 +191,114 @@ export default function ServicosPage() {
 
       {/* Services */}
       <section className="px-6 py-24 lg:px-10 lg:py-36">
+        <div className="mx-auto max-w-[1400px]">
+          {/* Space showcase */}
+          <div className="animate-on-scroll mb-24 flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
+            <div className="relative aspect-[4/3] w-full overflow-hidden lg:w-1/2">
+              <Image
+                src="/images/capa2.png"
+                alt="Interior do atelier Sapataria Paulista"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_hsl(var(--accent)/0.16),_transparent_60%)]" />
+            </div>
+            <div className="flex flex-1 flex-col gap-6">
+              <p className="text-[10px] uppercase tracking-[0.45em] text-accent">
+                Nosso Espaco
+              </p>
+              <h2 className="font-serif text-3xl text-foreground lg:text-4xl">
+                {"Atelier Premium em Sao Paulo"}
+              </h2>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {"Locado na Avenida Paulista, nosso atelier foi cuidadosamente projetado para oferecer o melhor ambiente de trabalho e atenciamento. Com equipamentos de ultima geracao e profissionais especializados, cada projeto e tratado como uma obra de arte."}
+              </p>
+              <Link
+                href="https://wa.me/5511999999999"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-accent transition-colors hover:text-foreground"
+              >
+                <span>Conhecer o atelier</span>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                >
+                  <path
+                    d="M1 7H13M13 7L7 1M13 7L7 13"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Especialidades showcase */}
+          <div className="animate-on-scroll mb-24">
+            <div className="mb-16 text-center">
+              <p className="text-[10px] uppercase tracking-[0.45em] text-accent">
+                Especialidades
+              </p>
+              <h2 className="mt-4 font-serif text-3xl text-foreground lg:text-5xl">
+                O que nos diferencia
+              </h2>
+              <p className="mt-4 mx-auto max-w-lg text-sm leading-relaxed text-muted-foreground">
+                Cada especialidade desenvolvida com mastery e dedicacao
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  title: "Tenis de Luxo",
+                  image: "/images/especialidade-tenis-luxo.png",
+                },
+                {
+                  title: "Sapatos & Couro",
+                  image: "/images/especialidade-sapatos-couro.png",
+                },
+                {
+                  title: "Bolsas & Acessorios",
+                  image: "/images/especialidade-bolsas-acessorios.png",
+                },
+                {
+                  title: "Higienizacao",
+                  image: "/images/especialidade-higienizacao.png",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="group relative flex flex-col overflow-hidden"
+                >
+                  <div className="relative aspect-square overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-end p-6">
+                    <h3 className="font-serif text-lg md:text-xl text-white text-center drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:translate-y-[-4px]">
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Details */}
+      <section className="px-6 lg:px-10 lg:py-36">
         <div className="mx-auto flex max-w-[1400px] flex-col gap-8">
           {services.map((service, i) => (
             <ServiceCard key={service.category} service={service} index={i} />

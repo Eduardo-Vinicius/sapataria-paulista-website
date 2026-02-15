@@ -6,20 +6,20 @@ import { ComparisonSlider } from "@/components/comparison-slider"
 
 const cases = [
   {
-    before: "/images/before-sneaker.jpg",
-    after: "/images/after-sneaker.jpg",
+    before: "/images/antes-sneaker.png",
+    after: "/images/depois-sneaker.png",
     title: "Tenis Premium",
     description: "Restauracao completa com limpeza profunda e acabamento.",
   },
   {
-    before: "/images/before-bag.jpg",
-    after: "/images/after-bag.jpg",
+    before: "/images/antes-bolsa.png",
+    after: "/images/depois-bolsa.png",
     title: "Bolsa de Couro",
     description: "Revitalizacao de couro e restauracao de cor original.",
   },
   {
-    before: "/images/before-shoes.jpg",
-    after: "/images/after-shoes.jpg",
+    before: "/images/antes-sapato.png",
+    after: "/images/depois-sapato.png",
     title: "Sapato Social",
     description: "Polimento e restauracao estrutural completa.",
   },
@@ -69,7 +69,7 @@ export function BeforeAfterPreview() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* CTA
         <div className="reveal mt-16 flex justify-center">
           <Link
             href="/galeria"
@@ -92,7 +92,7 @@ export function BeforeAfterPreview() {
               />
             </svg>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   )
