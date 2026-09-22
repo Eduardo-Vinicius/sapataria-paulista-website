@@ -8,20 +8,20 @@ const cases = [
   {
     before: "/images/antes-sneaker.png",
     after: "/images/depois-sneaker.png",
-    title: "Tenis Premium",
-    description: "Restauracao completa com limpeza profunda e acabamento.",
+    title: "Tênis Premium",
+    description: "Restauração completa com limpeza profunda e acabamento.",
   },
   {
     before: "/images/antes-bolsa.png",
     after: "/images/depois-bolsa.png",
     title: "Bolsa de Couro",
-    description: "Revitalizacao de couro e restauracao de cor original.",
+    description: "Revitalização de couro e restauração de cor original.",
   },
   {
     before: "/images/antes-sapato.png",
     after: "/images/depois-sapato.png",
     title: "Sapato Social",
-    description: "Polimento e restauracao estrutural completa.",
+    description: "Polimento e restauração estrutural completa.",
   },
 ]
 
@@ -40,7 +40,7 @@ export function BeforeAfterPreview() {
             Antes & Depois
           </h2>
           <p className="max-w-md text-sm leading-relaxed text-primary-foreground/40">
-            {"Deslize para ver a transformacao. Cada projeto e unico e realizado com precisao artesanal."}
+            {"Deslize para ver a transformação. Cada projeto é único e realizado com precisão artesanal."}
           </p>
         </div>
 
@@ -54,8 +54,8 @@ export function BeforeAfterPreview() {
               <ComparisonSlider
                 beforeImage={item.before}
                 afterImage={item.after}
-                beforeAlt={`${item.title} antes da restauracao`}
-                afterAlt={`${item.title} depois da restauracao`}
+                beforeAlt={`${item.title} antes da restauração`}
+                afterAlt={`${item.title} depois da restauração`}
               />
               <div className="flex flex-col gap-1.5 px-6 py-5">
                 <h3 className="font-serif text-lg text-primary-foreground">

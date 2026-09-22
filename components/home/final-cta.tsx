@@ -8,36 +8,33 @@ export function FinalCta() {
   const ref = useScrollAnimation()
 
   return (
-    <section ref={ref} className="relative flex min-h-[80vh] items-center justify-center overflow-hidden bg-primary">
-      {/* Background */}
+    <section ref={ref} className="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-primary">
       <div className="absolute inset-0">
         <Image
-          src="/images/atelier-interior.jpg"
-          alt="Interior do atelier"
+          src="/images/atelier-bancada.jpg"
+          alt="Bancada do atelier Sapataria Paulista"
           fill
-          className="object-cover opacity-20"
+          className="object-cover opacity-30"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(0_0%_4%/0.8)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/75 to-black/90" />
       </div>
 
-      {/* Content */}
-      <div className="reveal relative z-10 flex flex-col items-center gap-8 px-6 text-center">
-        <p className="text-[10px] uppercase tracking-ultra-wide text-accent">
-          Comece agora
-        </p>
-        <h2 className="max-w-2xl font-serif text-3xl leading-tight text-primary-foreground lg:text-6xl">
-          {"Envie fotos. Receba um diagnostico em minutos."}
+      <div className="reveal relative z-10 flex flex-col items-center gap-7 px-6 text-center">
+        <p className="text-[10px] uppercase tracking-ultra-wide text-accent">Comece agora</p>
+        <h2 className="max-w-3xl font-serif text-3xl leading-tight text-white lg:text-6xl">
+          Envie fotos. Receba o diagnóstico de quem vive o ofício.
         </h2>
-        <p className="max-w-md text-sm leading-relaxed text-primary-foreground/40">
-          {"Nossos especialistas analisam seu item e retornam com um diagnostico detalhado e orcamento personalizado."}
+        <p className="max-w-md text-sm leading-relaxed text-white/45">
+          Thiago e a equipe analisam sua peça e retornam com um plano claro —
+          materiais, prazo e acabamento no padrão Sapataria Paulista.
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row">
           <Link
             href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20enviar%20fotos%20para%20avalia%C3%A7%C3%A3o."
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 bg-primary-foreground px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-primary transition-all duration-500 hover:bg-primary-foreground/90"
+            className="group inline-flex items-center gap-3 bg-accent px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-accent-foreground transition-all duration-500 hover:bg-accent/90"
           >
             <span>WhatsApp</span>
             <svg
@@ -58,7 +55,7 @@ export function FinalCta() {
           </Link>
           <Link
             href="/processo"
-            className="inline-flex items-center px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-primary-foreground/50 transition-colors duration-500 hover:text-primary-foreground"
+            className="inline-flex items-center px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white/50 transition-colors duration-500 hover:text-white"
           >
             Como funciona
           </Link>

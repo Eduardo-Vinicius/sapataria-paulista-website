@@ -37,10 +37,10 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 const stats = [
-  { value: 22, suffix: "+", label: "Anos de experiencia" },
-  { value: 15000, suffix: "+", label: "Itens restaurados" },
+  { value: 24, suffix: "+", label: "Anos de ofício" },
+  { value: 15000, suffix: "+", label: "Peças restauradas" },
   { value: 99, suffix: "%", label: "Clientes satisfeitos" },
-  { value: 48, suffix: "h", label: "Resposta media" },
+  { value: 20, suffix: "+", label: "Especialistas" },
 ]
 
 export function CredibilityBar() {

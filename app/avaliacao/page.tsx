@@ -6,32 +6,32 @@ import { Camera, MessageCircle, Clock, CheckCircle } from "lucide-react"
 
 const pricingTiers = [
   {
-    service: "Higienizacao Premium",
+    service: "Higienização Premium",
     startingFrom: "R$ 120",
-    description: "Limpeza profunda, desodorizacao e protecao.",
+    description: "Limpeza profunda, desodorização e proteção.",
     includes: [
       "Limpeza profunda completa",
-      "Desodorizacao antibacteriana",
-      "Impermeabilizacao basica",
+      "Desodorização antibacteriana",
+      "Impermeabilização básica",
     ],
   },
   {
-    service: "Restauracao Simples",
+    service: "Restauração Simples",
     startingFrom: "R$ 200",
     description: "Reparos pontuais, polimento e acabamento.",
     includes: [
       "Reparo de desgaste localizado",
       "Polimento e acabamento",
-      "Protecao final",
+      "Proteção final",
     ],
   },
   {
-    service: "Restauracao Completa",
+    service: "Restauração Completa",
     startingFrom: "R$ 350",
-    description: "Restauracao integral com multiplas etapas.",
+    description: "Restauração integral com múltiplas etapas.",
     includes: [
-      "Diagnostico completo",
-      "Restauracao estrutural e estetica",
+      "Diagnóstico completo",
+      "Restauração estrutural e estética",
       "Tingimento e acabamento premium",
       "Controle de qualidade rigoroso",
     ],
@@ -39,31 +39,31 @@ const pricingTiers = [
   {
     service: "Troca de Solado",
     startingFrom: "R$ 280",
-    description: "Substituicao profissional com materiais premium.",
+    description: "Substituição profissional com materiais premium.",
     includes: [
-      "Remocao e preparacao",
+      "Remoção e preparação",
       "Solado de alta qualidade",
       "Colagem industrial",
-      "Acabamento impecavel",
+      "Acabamento impecável",
     ],
   },
   {
-    service: "Bolsas & Acessorios",
+    service: "Bolsas & Acessórios",
     startingFrom: "R$ 180",
     description: "Cuidados especializados para couro fino.",
     includes: [
-      "Hidratacao de couro",
-      "Restauracao de cor",
+      "Hidratação de couro",
+      "Restauração de cor",
       "Reparo de ferragens",
     ],
   },
   {
-    service: "Customizacao",
+    service: "Customização",
     startingFrom: "Sob consulta",
-    description: "Projetos especiais e personalizacoes sob medida.",
+    description: "Projetos especiais e personalizações sob medida.",
     includes: [
       "Tingimento personalizado",
-      "Mudanca de cor",
+      "Mudança de cor",
       "Efeitos especiais",
       "Projeto sob medida",
     ],
@@ -74,22 +74,22 @@ const uploadSteps = [
   {
     icon: Camera,
     title: "Fotografe seu item",
-    description: "Tire fotos claras de todos os angulos, incluindo detalhes do dano.",
+    description: "Tire fotos claras de todos os ângulos, incluindo detalhes do dano.",
   },
   {
     icon: MessageCircle,
     title: "Envie pelo WhatsApp",
-    description: "Mande as fotos com uma breve descricao do que precisa.",
+    description: "Mande as fotos com uma breve descrição do que precisa.",
   },
   {
     icon: Clock,
     title: "Aguarde o retorno",
-    description: "Respondemos em minutos com diagnostico e orcamento.",
+    description: "Respondemos em minutos com diagnóstico e orçamento.",
   },
   {
     icon: CheckCircle,
     title: "Aprove e envie",
-    description: "Apos aprovar, envie ou traga o item ao atelier.",
+    description: "Após aprovar, envie ou traga o item ao atelier.",
   },
 ]
 
@@ -102,13 +102,13 @@ export default function AvaliacaoPage() {
       <section className="flex min-h-[50vh] items-end bg-primary px-6 pb-16 pt-32 lg:px-8">
         <div className="mx-auto w-full max-w-7xl">
           <p className="animate-on-scroll text-[10px] uppercase tracking-[0.4em] text-accent">
-            Avaliacao
+            Avaliação
           </p>
           <h1 className="animate-on-scroll mt-4 font-serif text-4xl text-primary-foreground lg:text-6xl">
-            Avaliacao & Precos
+            Avaliação & Preços
           </h1>
           <p className="animate-on-scroll mt-6 max-w-xl text-sm leading-relaxed text-primary-foreground/60">
-            {"Cada item e unico. Os valores variam conforme o estado e a complexidade do servico. Envie fotos para receber uma avaliacao personalizada."}
+            {"Cada item é único. Os valores variam conforme o estado e a complexidade do serviço. Envie fotos para receber uma avaliação personalizada."}
           </p>
         </div>
       </section>
@@ -121,7 +121,7 @@ export default function AvaliacaoPage() {
               Como enviar
             </p>
             <h2 className="mt-3 font-serif text-3xl text-foreground lg:text-5xl">
-              Envie Fotos Para Avaliacao
+              Envie Fotos Para Avaliação
             </h2>
           </div>
           <div className="stagger-children grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -181,10 +181,10 @@ export default function AvaliacaoPage() {
               Valores
             </p>
             <h2 className="mt-3 font-serif text-3xl text-foreground lg:text-5xl">
-              Tabela de Referencia
+              Tabela de Referência
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              {"Valores iniciais de referencia. O orcamento final depende da analise do item. Todos os servicos incluem controle de qualidade e garantia."}
+              {"Valores iniciais de referência. O orçamento final depende da análise do item. Todos os serviços incluem controle de qualidade e garantia."}
             </p>
           </div>
           <div className="stagger-children grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -222,7 +222,7 @@ export default function AvaliacaoPage() {
                   rel="noopener noreferrer"
                   className="mt-auto pt-2 text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-accent"
                 >
-                  Solicitar orcamento
+                  Solicitar orçamento
                 </Link>
               </div>
             ))}

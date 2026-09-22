@@ -9,70 +9,70 @@ import { ChevronDown } from "lucide-react"
 const steps = [
   {
     number: "01",
-    title: "Recepcao & Avaliacao",
+    title: "Recepção & Avaliação",
     description:
-      "Envie fotos do seu item pelo WhatsApp ou traga pessoalmente ao atelier. Nossa equipe realiza uma analise inicial detalhada do estado geral, materiais e tipo de desgaste.",
-    image: "/images/service-cleaning.jpg",
+      "Envie fotos pelo WhatsApp ou traga a peça ao atelier. Analisamos estado, materiais e tipo de desgaste com o olhar de quem vive o ofício há mais de duas décadas.",
+    image: "/images/ofício-lv-detalhe.jpg",
   },
   {
     number: "02",
-    title: "Analise de Materiais",
+    title: "Análise de Materiais",
     description:
-      "Identificamos cada material presente no item — tipo de couro, tecido, borracha, ferragens — para selecionar os produtos e tecnicas mais adequados para a restauracao.",
-    image: "/images/service-sneakers.jpg",
+      "Identificamos couro, tecido, borracha e ferragens para escolher tintas, colas e técnicas certas — o mesmo rigor aplicado a Louis Vuitton, Chanel e tênis de coleção.",
+    image: "/images/ofício-bancada.jpg",
   },
   {
     number: "03",
-    title: "Plano de Restauracao",
+    title: "Plano de Restauração",
     description:
-      "Elaboramos um plano detalhado com todas as etapas necessarias, prazos e valores. Voce aprova antes de iniciarmos qualquer intervencao.",
-    image: "/images/atelier-interior.jpg",
+      "Você recebe um plano claro com etapas, prazo e valores. Nada começa sem a sua aprovação.",
+    image: "/images/atelier-bancada.jpg",
   },
   {
     number: "04",
-    title: "Execucao Artesanal",
+    title: "Execução Artesanal",
     description:
-      "Cada etapa e realizada manualmente por nossos especialistas, com tecnicas tradicionais e produtos premium. Acompanhamos a evolucao com fotos de progresso.",
-    image: "/images/service-dyeing.jpg",
+      "Costura, tingimento, limpeza e estrutural feitos a mão na bancada. Acompanhamos a evolução com fotos de progresso.",
+    image: "/images/ofício-chanel.jpg",
   },
   {
     number: "05",
     title: "Controle de Qualidade",
     description:
-      "Inspecao final rigorosa: acabamento, cor, costura, estrutura. Cada item passa por nossa checklist de qualidade antes da entrega. Perfeicao e padrao.",
-    image: "/images/service-shoes.jpg",
+      "Inspeção final de acabamento, cor, costura e estrutura. So sai do atelier no padrão Sapataria Paulista.",
+    image: "/images/ofício-costura.jpg",
   },
 ]
 
 const qualityStandards = [
-  "Acabamento impecavel em todas as superficies",
+  "Acabamento impecável em todas as superfícies",
   "Correspondencia exata de cor e tonalidade",
   "Alinhamento preciso de costuras e reforcos",
   "Integridade estrutural restaurada",
-  "Protecao final contra desgaste futuro",
-  "Documentacao fotografica de todo o processo",
+  "Proteção final contra desgaste futuro",
+  "Documentação fotográfica de todo o processo",
 ]
 
 const faqs = [
   {
-    q: "Quanto tempo leva uma restauracao?",
-    a: "Depende da complexidade do servico. Limpezas simples levam de 3 a 5 dias. Restauracoes completas podem levar de 7 a 14 dias uteis. Informamos o prazo exato na avaliacao.",
+    q: "Quanto tempo leva uma restauração?",
+    a: "Depende da complexidade do serviço. Limpezas simples levam de 3 a 5 dias. Restaurações completas podem levar de 7 a 14 dias úteis. Informamos o prazo exato na avaliação.",
   },
   {
     q: "Posso enviar meu item pelos Correios?",
-    a: "Sim, atendemos clientes de todo o Brasil. Fornecemos orientacoes detalhadas para embalar e enviar seu item com seguranca.",
+    a: "Sim, atendemos clientes de todo o Brasil. Fornecemos orientações detalhadas para embalar e enviar seu item com segurança.",
   },
   {
     q: "Vocês trabalham com quais marcas?",
-    a: "Trabalhamos com todas as marcas e tipos de calcados e artigos de couro: Nike, Adidas, Gucci, Louis Vuitton, Balenciaga, Prada, entre muitas outras.",
+    a: "Trabalhamos com todas as marcas e tipos de calçados e artigos de couro: Nike, Adidas, Gucci, Louis Vuitton, Balenciaga, Prada, entre muitas outras.",
   },
   {
-    q: "E se eu nao gostar do resultado?",
-    a: "Nossa taxa de satisfacao e de 99%. Em casos raros de insatisfacao, revisamos o item sem custo adicional ate atingir o padrao desejado.",
+    q: "E se eu não gostar do resultado?",
+    a: "Nossa taxa de satisfação é de 99%. Em casos raros de insatisfação, revisamos o item sem custo adicional até atingir o padrão desejado.",
   },
   {
     q: "Como funciona o pagamento?",
-    a: "Aceitamos Pix, transferencia bancaria e cartoes. O pagamento e feito apos a aprovacao do orcamento, antes do inicio do servico.",
+    a: "Aceitamos Pix, transferência bancária e cartões. O pagamento é feito após a aprovação do orçamento, antes do início do serviço.",
   },
 ]
 
@@ -82,16 +82,28 @@ export default function ProcessoPage() {
   return (
     <div ref={ref}>
       {/* Hero */}
-      <section className="flex min-h-[60vh] items-end bg-primary px-6 pb-20 pt-36 lg:px-10">
-        <div className="mx-auto w-full max-w-[1400px]">
+      <section className="relative flex min-h-[60vh] items-end overflow-hidden px-6 pb-20 pt-36 lg:px-10">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/ofício-costura.jpg"
+            alt="Costura artesanal no atelier"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/40" />
+        </div>
+        <div className="relative z-10 mx-auto w-full max-w-[1400px]">
           <p className="animate-on-scroll text-[10px] uppercase tracking-ultra-wide text-accent">
             Processo
           </p>
-          <h1 className="animate-on-scroll mt-6 font-serif text-4xl text-primary-foreground lg:text-7xl">
-            Nosso Processo
+          <h1 className="animate-on-scroll mt-6 font-serif text-4xl text-white lg:text-7xl">
+            Como restauramos
           </h1>
-          <p className="animate-on-scroll mt-6 max-w-lg text-sm leading-relaxed text-primary-foreground/40">
-            {"Transparencia em cada etapa. Conheca como transformamos seus itens com tecnica, cuidado e precisao artesanal."}
+          <p className="animate-on-scroll mt-6 max-w-lg text-sm leading-relaxed text-white/55">
+            Transparência em cada etapa — do diagnóstico de Thiago ao
+            acabamento que devolve a peça ao seu melhor estado.
           </p>
         </div>
       </section>
@@ -140,7 +152,7 @@ export default function ProcessoPage() {
         <div className="mx-auto max-w-[1400px]">
           <div className="animate-on-scroll mb-12">
             <p className="text-[10px] uppercase tracking-[0.4em] text-accent">
-              Excelencia
+              Excelência
             </p>
             <h2 className="mt-3 font-serif text-3xl text-foreground lg:text-5xl">
               Padroes de Qualidade

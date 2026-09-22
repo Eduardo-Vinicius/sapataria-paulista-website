@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
-  { href: "/servicos", label: "Servicos" },
+  { href: "/servicos", label: "Serviços" },
   { href: "/galeria", label: "Galeria" },
   { href: "/processo", label: "Processo" },
   { href: "/sobre", label: "Sobre" },
@@ -52,7 +52,7 @@ export function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-10 lg:flex" role="navigation" aria-label="Navegacao principal">
+          <nav className="hidden items-center gap-10 lg:flex" role="navigation" aria-label="Navegação principal">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -96,7 +96,7 @@ export function Header() {
         <nav
           className="flex h-full flex-col items-center justify-center gap-8"
           role="navigation"
-          aria-label="Navegacao mobile"
+          aria-label="Navegação mobile"
         >
           <Link
             href="/"

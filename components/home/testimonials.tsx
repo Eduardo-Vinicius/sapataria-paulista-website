@@ -5,24 +5,24 @@ import { useState, useEffect, useCallback } from "react"
 
 const testimonials = [
   {
-    text: "Achei que meu tenis estava perdido. Voltou melhor do que quando comprei.",
+    text: "Achei que meu tênis estava perdido. Voltou melhor do que quando comprei — o cuidado do Thiago é nota.",
     name: "Ricardo M.",
     item: "Air Jordan 1 Retro High OG",
   },
   {
-    text: "Profissionalismo em cada detalhe. Minha bolsa Gucci ficou perfeita.",
+    text: "Profissionalismo em cada detalhe. Minha bolsa Gucci ficou perfeita nas mãos do atelier.",
     name: "Fernanda L.",
     item: "Bolsa Gucci Marmont",
   },
   {
-    text: "O acabamento e a atencao ao detalhe sao de outro nivel.",
-    name: "Andre S.",
+    text: "O acabamento e a atenção ao detalhe são de outro nível. Vale cada centavo.",
+    name: "André S.",
     item: "Sapatos Ferragamo",
   },
   {
-    text: "Transparencia e qualidade que inspiram confianca.",
+    text: "Transparência e qualidade que inspiram confiança. Sapataria Paulista é referência.",
     name: "Camila R.",
-    item: "Tenis Balenciaga Triple S",
+    item: "Tênis Balenciaga Triple S",
   },
 ]
 

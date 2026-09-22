@@ -17,23 +17,24 @@ export function Footer() {
               </span>
             </div>
             <p className="max-w-xs text-xs leading-relaxed text-muted-foreground">
-              {"Atelier premium de restauracao. Tradicao e qualidade desde 2002."}
+              Atelier de Thiago Landes. Restauração de luxo na Av. Paulista —
+              tênis, sapatos e bolsas de grife.
             </p>
           </div>
 
           {/* Navigation */}
           <div className="flex flex-col gap-4">
             <p className="text-[9px] uppercase tracking-ultra-wide text-muted-foreground">
-              Navegacao
+              Navegação
             </p>
-            <nav className="flex flex-col gap-2.5" aria-label="Links do rodape">
+            <nav className="flex flex-col gap-2.5" aria-label="Links do rodapé">
               {[
                 { href: "/", label: "Home" },
-                { href: "/servicos", label: "Servicos" },
+                { href: "/servicos", label: "Serviços" },
                 { href: "/galeria", label: "Galeria" },
                 { href: "/processo", label: "Processo" },
                 { href: "/sobre", label: "Sobre" },
-                { href: "/avaliacao", label: "Avaliacao" },
+                { href: "/avaliacao", label: "Avaliação" },
                 { href: "/contato", label: "Contato" },
               ].map((link) => (
                 <Link
@@ -54,7 +55,7 @@ export function Footer() {
             </p>
             <div className="flex flex-col gap-2.5 text-xs text-muted-foreground">
               <p>{"Av. Paulista 2001 (sobreloja)"}</p>
-              <p>{"Sao Paulo, SP"}</p>
+              <p>{"São Paulo, SP"}</p>
               <p className="mt-2">{"Seg - Sex: 9h - 18h"}</p>
               <p>{"Sab: 9h - 13h"}</p>
             </div>

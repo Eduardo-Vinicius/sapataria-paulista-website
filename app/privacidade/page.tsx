@@ -26,7 +26,7 @@ export default function PrivacidadePage() {
                 1. Coleta de Dados
               </h2>
               <p>
-                {"A Sapataria Paulista coleta apenas os dados necessarios para a prestacao de nossos servicos: nome, telefone, e-mail e imagens dos itens enviados para avaliacao. Nao compartilhamos seus dados com terceiros."}
+                {"A Sapataria Paulista coleta apenas os dados necessários para a prestação de nossos serviços: nome, telefone, e-mail e imagens dos itens enviados para avaliação. Não compartilhamos seus dados com terceiros."}
               </p>
             </div>
 
@@ -35,7 +35,7 @@ export default function PrivacidadePage() {
                 2. Uso dos Dados
               </h2>
               <p>
-                {"Seus dados sao utilizados exclusivamente para: comunicacao sobre servicos solicitados, envio de orcamentos, atualizacoes sobre o andamento de restauracoes e, quando autorizado, envio de novidades e promocoes."}
+                {"Seus dados são utilizados exclusivamente para: comunicação sobre serviços solicitados, envio de orçamentos, atualizações sobre o andamento de restaurações e, quando autorizado, envio de novidades e promoções."}
               </p>
             </div>
 
@@ -44,7 +44,7 @@ export default function PrivacidadePage() {
                 3. Armazenamento
               </h2>
               <p>
-                {"Os dados sao armazenados de forma segura e por tempo indeterminado, podendo ser excluidos mediante solicitacao do titular."}
+                {"Os dados são armazenados de forma segura e por tempo indeterminado, podendo ser excluidos mediante solicitação do titular."}
               </p>
             </div>
 
@@ -53,7 +53,7 @@ export default function PrivacidadePage() {
                 4. Imagens
               </h2>
               <p>
-                {"As imagens dos itens podem ser utilizadas em nosso portfolio e redes sociais para fins de divulgacao, sempre preservando a privacidade do cliente. Caso nao deseje a divulgacao, informe-nos."}
+                {"As imagens dos itens podem ser utilizadas em nosso portfólio e redes sociais para fins de divulgação, sempre preservando a privacidade do cliente. Caso não deseje a divulgação, informe-nos."}
               </p>
             </div>
 
@@ -62,7 +62,7 @@ export default function PrivacidadePage() {
                 5. Seus Direitos
               </h2>
               <p>
-                {"Voce tem direito de acessar, corrigir ou excluir seus dados pessoais a qualquer momento. Entre em contato pelo WhatsApp ou e-mail para exercer seus direitos."}
+                {"Você tem direito de acessar, corrigir ou excluir seus dados pessoais a qualquer momento. Entre em contato pelo WhatsApp ou e-mail para exercer seus direitos."}
               </p>
             </div>
 
@@ -71,12 +71,12 @@ export default function PrivacidadePage() {
                 6. Contato
               </h2>
               <p>
-                {"Para questoes sobre privacidade, entre em contato: WhatsApp (11) 99999-9999 ou visite-nos na Av. Paulista 2001, Sao Paulo - SP."}
+                {"Para questoes sobre privacidade, entre em contato: WhatsApp (11) 99999-9999 ou visite-nos na Av. Paulista 2001, São Paulo - SP."}
               </p>
             </div>
 
             <p className="mt-8 border-t border-border/50 pt-8 text-xs text-muted-foreground">
-              {"Ultima atualizacao: Fevereiro de 2026"}
+              {"Última atualização: Fevereiro de 2026"}
             </p>
           </div>
         </div>

@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { MapPin, Clock, MessageCircle, Instagram, Phone } from "lucide-react"
@@ -7,18 +8,18 @@ import { MapPin, Clock, MessageCircle, Instagram, Phone } from "lucide-react"
 const contactInfo = [
   {
     icon: MapPin,
-    title: "Endereco",
-    lines: ["Av. Paulista 2001 (sobreloja)", "Bela Vista, Sao Paulo - SP", "CEP 01311-300"],
+    title: "Endereço",
+    lines: ["Av. Paulista 2001 (sobreloja)", "Bela Vista, São Paulo - SP", "CEP 01311-300"],
   },
   {
     icon: Clock,
-    title: "Horario",
-    lines: ["Segunda a Sexta: 9h - 18h", "Sabado: 9h - 13h", "Domingo: Fechado"],
+    title: "Horário",
+    lines: ["Segunda a Sexta: 9h - 18h", "Sábado: 9h - 13h", "Domingo: Fechado"],
   },
   {
     icon: Phone,
     title: "Telefone",
-    lines: ["(11) 99999-9999", "WhatsApp disponivel"],
+    lines: ["(11) 99999-9999", "WhatsApp disponível"],
   },
 ]
 
@@ -27,24 +28,35 @@ export default function ContatoPage() {
 
   return (
     <div ref={ref}>
-      {/* Hero */}
-      <section className="flex min-h-[50vh] items-end bg-primary px-6 pb-16 pt-32 lg:px-8">
-        <div className="mx-auto w-full max-w-7xl">
+      <section className="relative flex min-h-[55vh] items-end overflow-hidden px-6 pb-16 pt-32 lg:px-10">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/atelier-bancada.jpg"
+            alt="Atelier Sapataria Paulista"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/45" />
+        </div>
+        <div className="relative z-10 mx-auto w-full max-w-[1400px]">
           <p className="animate-on-scroll text-[10px] uppercase tracking-[0.4em] text-accent">
             Contato
           </p>
-          <h1 className="animate-on-scroll mt-4 font-serif text-4xl text-primary-foreground lg:text-6xl">
-            Entre em Contato
+          <h1 className="animate-on-scroll mt-4 font-serif text-4xl text-white lg:text-6xl">
+            Fale com o atelier
           </h1>
-          <p className="animate-on-scroll mt-6 max-w-xl text-sm leading-relaxed text-primary-foreground/60">
-            {"Estamos prontos para atende-lo. Envie suas fotos, agende uma visita ou tire suas duvidas."}
+          <p className="animate-on-scroll mt-6 max-w-xl text-sm leading-relaxed text-white/55">
+            Envie fotos para avaliação, agende visita na Galeria 2001 ou tire
+            dúvidas com a equipe de Thiago Landes.
           </p>
         </div>
       </section>
 
       {/* Contact details + Form */}
-      <section className="px-6 py-20 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl">
+      <section className="px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto max-w-[1400px]">
           <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
             {/* Left - Info */}
             <div className="flex flex-1 flex-col gap-12">
@@ -78,36 +90,50 @@ export default function ContatoPage() {
                 </p>
                 <div className="flex gap-3">
                   <Link
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-10 w-10 items-center justify-center border border-border text-muted-foreground transition-all hover:border-accent hover:text-accent"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="h-4 w-4" />
+                  </Link>
+                  <Link
                     href="https://wa.me/5511999999999"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-12 w-12 items-center justify-center border border-border text-muted-foreground transition-all hover:border-accent hover:text-accent"
+                    className="flex h-10 w-10 items-center justify-center border border-border text-muted-foreground transition-all hover:border-accent hover:text-accent"
                     aria-label="WhatsApp"
                   >
-                    <MessageCircle className="h-5 w-5" />
-                  </Link>
-                  <Link
-                    href="https://instagram.com/sapatariapaulista"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-12 w-12 items-center justify-center border border-border text-muted-foreground transition-all hover:border-accent hover:text-accent"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="h-5 w-5" />
+                    <MessageCircle className="h-4 w-4" />
                   </Link>
                 </div>
               </div>
 
-              {/* Priority CTA */}
+              <div className="animate-on-scroll relative hidden aspect-[4/5] overflow-hidden lg:block">
+                <Image
+                  src="/images/thiago-101.jpg"
+                  alt="Thiago Landes no atelier"
+                  fill
+                  className="object-cover"
+                  sizes="40vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <p className="absolute bottom-0 left-0 p-6 font-serif text-xl text-white">
+                  Thiago Landes
+                </p>
+              </div>
+
               <div className="animate-on-scroll border border-accent/30 bg-card p-8">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
                   Atendimento prioritario
                 </p>
                 <h3 className="mt-3 font-serif text-xl text-foreground">
-                  WhatsApp e o canal mais rapido
+                  WhatsApp é o canal mais rápido
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {"Para avaliacao de itens, envie fotos diretamente pelo WhatsApp. Respondemos em minutos durante o horario comercial."}
+                  Para avaliação, envie fotos pelo WhatsApp. Respondemos em
+                  minutos no horário comercial.
                 </p>
                 <Link
                   href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20uma%20avalia%C3%A7%C3%A3o."
@@ -145,7 +171,7 @@ export default function ContatoPage() {
                   Envie uma mensagem
                 </h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  {"Ou, se preferir, entre em contato diretamente pelo WhatsApp."}
+                  Ou fale direto com o atelier pelo WhatsApp.
                 </p>
               </div>
 
@@ -205,7 +231,7 @@ export default function ContatoPage() {
                   <textarea
                     id="message"
                     rows={5}
-                    placeholder="Descreva seu item e o tipo de servico desejado..."
+                    placeholder="Descreva seu item e o tipo de serviço desejado..."
                     className="border border-border bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors resize-none"
                   />
                 </div>
@@ -245,7 +271,7 @@ export default function ContatoPage() {
               Av. Paulista 2001
             </p>
             <p className="text-sm text-muted-foreground">
-              Sao Paulo, SP
+              São Paulo, SP — Galeria 2001
             </p>
           </div>
         </div>

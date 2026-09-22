@@ -8,69 +8,69 @@ import { ChevronDown } from "lucide-react"
 
 const services = [
   {
-    category: "Limpeza & Higienizacao Premium",
-    image: "/images/especialidade-higienizacao.png",
+    category: "Limpeza & Higienização Premium",
+    image: "/images/ofício-lv-limpeza.jpg",
     description:
-      "Processo exclusivo de limpeza profunda que remove sujeira, manchas e odores sem comprometer a integridade dos materiais. Utilizamos produtos importados de alta performance.",
+      "Limpeza profunda que remove manchas e odores sem comprometer a integridade — de bolsas Louis Vuitton a tênis de coleção. Produtos importados e mão de atelier.",
     details: [
-      "Limpeza profunda de tecidos, camurca, nubuck e couro",
-      "Remocao de manchas dificeis e encardidos",
-      "Desodorizacao e higienizacao antibacteriana",
-      "Protecao pos-limpeza com impermeabilizante premium",
+      "Limpeza profunda de tecidos, camurça, nubuck e couro",
+      "Remoção de manchas dificeis e encardidos",
+      "Desodorização e higienização antibacteriana",
+      "Proteção pos-limpeza com impermeabilizante premium",
     ],
-    turnaround: "3 a 5 dias uteis",
+    turnaround: "3 a 5 dias úteis",
   },
   {
-    category: "Restauracao Estrutural",
-    image: "/images/restauracao-estrutural.png",
+    category: "Restauração Estrutural",
+    image: "/images/ofício-tênis.jpg",
     description:
-      "Reconstrucao e reparo de partes danificadas, como entressolas, costuras, palmilhas e estruturas internas. Devolvemos a forma e funcionalidade original do seu item.",
+      "Reconstrução de entressolas, costuras, palmilhas e estruturas internas. Devolvemos forma e funcionalidade com costura industrial e acabamento artesanal.",
     details: [
       "Reparo de entressolas e midsoles",
       "Recostura e reforco de costuras",
-      "Restauracao de palmilhas e forros internos",
+      "Restauração de palmilhas e forros internos",
       "Reforco estrutural e recondicionamento",
     ],
-    turnaround: "5 a 10 dias uteis",
+    turnaround: "5 a 10 dias úteis",
   },
   {
     category: "Troca & Ajuste de Solado",
-    image: "/images/troca-solado.png",
+    image: "/images/ofício-sapato.jpg",
     description:
-      "Substituicao e ajuste de solados desgastados. Trabalhamos com materiais de alta qualidade para garantir durabilidade e acabamento impecavel.",
+      "Substituição e nívelamento de solados desgastados em sapatos sociais e de grife. Materiais de alta durabilidade com acabamento impecável.",
     details: [
       "Troca completa de solado",
-      "Aplicacao de borracha protetora",
-      "Ajuste de salto e nivelamento",
+      "Aplicação de borracha protetora",
+      "Ajuste de salto e nívelamento",
       "Acabamento e colagem industrial",
     ],
-    turnaround: "7 a 14 dias uteis",
+    turnaround: "7 a 14 dias úteis",
   },
   {
-    category: "Pintura & Revitalizacao",
-    image: "/images/pintura.png",
+    category: "Pintura & Revitalização",
+    image: "/images/ofício-chanel.jpg",
     description:
-      "Restauracao de cor e acabamento com tintas e pigmentos profissionais. Personalizacao de cores e efeitos sob medida para cada material.",
+      "Restauração de cor e acabamento com tintas e pigmentos profissionais — de Chanel a peças customizadas. Efeitos sob medida para cada material.",
     details: [
-      "Tingimento de couro e sinteticos",
-      "Restauracao de cor original",
-      "Customizacao de cores sob encomenda",
+      "Tingimento de couro e sintéticos",
+      "Restauração de cor original",
+      "Customização de cores sob encomenda",
       "Acabamento acetinado, fosco ou brilhante",
     ],
-    turnaround: "5 a 10 dias uteis",
+    turnaround: "5 a 10 dias úteis",
   },
   {
     category: "Couro & Acabamentos",
-    image: "/images/especialidade-sapatos-couro.png",
+    image: "/images/ofício-lv-interior.jpg",
     description:
-      "Tratamento especializado para artigos de couro fino: bolsas, carteiras, cintos e acessorios de grife. Restauracao que respeita o material e a identidade da peca.",
+      "Tratamento especializado para bolsas, carteiras e acessórios de grife. Restauração que respeita o material e a identidade da peça.",
     details: [
-      "Hidratacao e nutricao de couro",
+      "Hidratação e nutrição de couro",
       "Reparo de arranhoes e descascados",
-      "Restauracao de ferragens e zippers",
+      "Restauração de ferragens e zippers",
       "Tratamento de bordas e acabamentos",
     ],
-    turnaround: "5 a 12 dias uteis",
+    turnaround: "5 a 12 dias úteis",
   },
 ]
 
@@ -169,22 +169,34 @@ function ServiceCard({
   )
 }
 
-export default function ServicosPage() {
+export default function ServiçosPage() {
   const ref = useScrollAnimation()
 
   return (
     <div ref={ref}>
       {/* Hero */}
-      <section className="flex min-h-[60vh] items-end bg-primary px-6 pb-20 pt-36 lg:px-10">
-        <div className="mx-auto w-full max-w-[1400px]">
+      <section className="relative flex min-h-[65vh] items-end overflow-hidden px-6 pb-20 pt-36 lg:px-10">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/ofício-bolsa-costura.jpg"
+            alt="Restauração artesanal de bolsa de grife"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/45" />
+        </div>
+        <div className="relative z-10 mx-auto w-full max-w-[1400px]">
           <p className="animate-on-scroll text-[10px] uppercase tracking-ultra-wide text-accent">
-            Servicos
+            Serviços
           </p>
-          <h1 className="animate-on-scroll mt-6 font-serif text-4xl text-primary-foreground lg:text-7xl">
-            Nossos Servicos
+          <h1 className="animate-on-scroll mt-6 font-serif text-4xl text-white lg:text-7xl">
+            O que restauramos
           </h1>
-          <p className="animate-on-scroll mt-6 max-w-lg text-sm leading-relaxed text-primary-foreground/40">
-            {"Cada servico e realizado com tecnicas premium e atencao meticulosa a cada detalhe. Conheca nossas especialidades."}
+          <p className="animate-on-scroll mt-6 max-w-lg text-sm leading-relaxed text-white/55">
+            Tênis, sapatos, bolsas e acessórios de grife — cada peça com o
+            padrão de ofício de Thiago Landes e da equipe Sapataria Paulista.
           </p>
         </div>
       </section>
@@ -196,24 +208,24 @@ export default function ServicosPage() {
           <div className="animate-on-scroll mb-24 flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
             <div className="relative aspect-[4/3] w-full overflow-hidden lg:w-1/2">
               <Image
-                src="/images/capa2.png"
-                alt="Interior do atelier Sapataria Paulista"
+                src="/images/atelier-bancada.jpg"
+                alt="Bancada do atelier Sapataria Paulista"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_hsl(var(--accent)/0.16),_transparent_60%)]" />
             </div>
             <div className="flex flex-1 flex-col gap-6">
               <p className="text-[10px] uppercase tracking-[0.45em] text-accent">
                 Nosso Espaco
               </p>
               <h2 className="font-serif text-3xl text-foreground lg:text-4xl">
-                {"Atelier Premium em Sao Paulo"}
+                Atelier na Galeria 2001
               </h2>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                {"Locado na Avenida Paulista, nosso atelier foi cuidadosamente projetado para oferecer o melhor ambiente de trabalho e atenciamento. Com equipamentos de ultima geracao e profissionais especializados, cada projeto e tratado como uma obra de arte."}
+                Na Avenida Paulista, o atelier reúne bancadas de restauração,
+                costura e limpeza premium. Cada projeto e tratado como obra —
+                sob a lideranca de Thiago Landes.
               </p>
               <Link
                 href="https://wa.me/5511999999999"
@@ -250,26 +262,26 @@ export default function ServicosPage() {
                 O que nos diferencia
               </h2>
               <p className="mt-4 mx-auto max-w-lg text-sm leading-relaxed text-muted-foreground">
-                Cada especialidade desenvolvida com mastery e dedicacao
+                Cada especialidade desenvolvida com mastery e dedicação
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {[
                 {
-                  title: "Tenis de Luxo",
-                  image: "/images/especialidade-tenis-luxo.png",
+                  title: "Tênis de Luxo",
+                  image: "/images/ofício-tênis.jpg",
                 },
                 {
                   title: "Sapatos & Couro",
-                  image: "/images/especialidade-sapatos-couro.png",
+                  image: "/images/ofício-sapato.jpg",
                 },
                 {
-                  title: "Bolsas & Acessorios",
-                  image: "/images/especialidade-bolsas-acessorios.png",
+                  title: "Bolsas & Acessórios",
+                  image: "/images/ofício-chanel-2.jpg",
                 },
                 {
-                  title: "Higienizacao",
-                  image: "/images/especialidade-higienizacao.png",
+                  title: "Higienização",
+                  image: "/images/ofício-lv-detalhe.jpg",
                 },
               ].map((item) => (
                 <div
@@ -313,7 +325,7 @@ export default function ServicosPage() {
             Proximo passo
           </p>
           <h2 className="animate-on-scroll max-w-2xl font-serif text-3xl text-primary-foreground lg:text-6xl">
-            {"Envie fotos do seu item e receba uma avaliacao em minutos."}
+            {"Envie fotos do seu item e receba uma avaliação em minutos."}
           </h2>
           <Link
             href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20uma%20avalia%C3%A7%C3%A3o."
