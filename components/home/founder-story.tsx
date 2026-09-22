@@ -35,26 +35,26 @@ export function FounderStory() {
           </p>
         </div>
 
-        <div className="reveal-scale relative mb-10 min-h-[70vh] overflow-hidden lg:mb-14 lg:min-h-[85vh]">
+        <div className="reveal-scale relative mb-10 aspect-[4/3] max-h-[560px] min-h-[320px] overflow-hidden sm:aspect-[16/10] lg:mb-14 lg:max-h-[620px]">
           <Image
             src="/images/thiago-147.jpg"
             alt="Thiago Landes, fundador da Sapataria Paulista, em ação no ofício"
             fill
-            className="object-cover object-[center_20%]"
-            sizes="100vw"
+            className="object-cover object-[center_25%]"
+            sizes="(max-width: 1400px) 100vw, 1400px"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-6 p-6 md:p-10 lg:flex-row lg:items-end lg:justify-between lg:p-14">
+          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-5 p-5 md:gap-6 md:p-8 lg:flex-row lg:items-end lg:justify-between lg:p-10">
             <div className="max-w-xl">
               <p className="text-[10px] uppercase tracking-[0.4em] text-accent">
                 Da Paulista ao atelier
               </p>
-              <p className="mt-3 font-serif text-2xl leading-snug text-white md:text-3xl lg:text-4xl">
+              <p className="mt-3 font-serif text-xl leading-snug text-white md:text-2xl lg:text-3xl">
                 {"Mais de duas décadas dedicadas ao couro, ao solado e ao detalhe que só o olho treinado enxerga."}
               </p>
             </div>
-            <div className="grid grid-cols-3 gap-3 sm:gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
               {[
                 { label: "Anos de ofício", value: "24+" },
                 { label: "Equipe", value: "20+" },
@@ -62,9 +62,9 @@ export function FounderStory() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="border border-white/15 bg-black/40 px-3 py-3 backdrop-blur-sm sm:px-4 sm:py-4"
+                  className="border border-white/15 bg-black/40 px-3 py-2.5 backdrop-blur-sm sm:px-4 sm:py-3"
                 >
-                  <p className="font-serif text-xl text-white sm:text-2xl">{stat.value}</p>
+                  <p className="font-serif text-lg text-white sm:text-xl">{stat.value}</p>
                   <p className="mt-1 text-[9px] uppercase tracking-[0.18em] text-white/60 sm:text-[10px]">
                     {stat.label}
                   </p>
