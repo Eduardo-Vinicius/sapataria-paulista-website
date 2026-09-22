@@ -8,22 +8,22 @@ const services = [
   {
     title: "Tênis de Luxo",
     description: "Limpeza profunda, restauração estrutural e acabamento de coleção.",
-    image: "/images/ofício-tênis.jpg",
+    image: "/images/oficio-tenis.jpg",
   },
   {
     title: "Sapatos & Couro",
     description: "Polimento, tingimento e revitalização de couro fino.",
-    image: "/images/ofício-sapato.jpg",
+    image: "/images/oficio-sapato.jpg",
   },
   {
     title: "Bolsas & Acessórios",
     description: "Cuidado especializado para bolsas e peças de grife.",
-    image: "/images/ofício-lv-interior.jpg",
+    image: "/images/oficio-lv-interior.jpg",
   },
   {
     title: "Higienização",
     description: "Limpeza que restaura a pelezinha e a nobreza do material.",
-    image: "/images/ofício-lv-limpeza.jpg",
+    image: "/images/oficio-lv-limpeza.jpg",
   },
 ]
 

@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   description:
     "Atelier de Thiago Landes na Av. Paulista. Restauração premium de tênis, sapatos e bolsas de grife. Da engraxate na Paulista ao padrão maison.",
   generator: "v0.app",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png" }],
+  },
 }
 
 export const viewport: Viewport = {

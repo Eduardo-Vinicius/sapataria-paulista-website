@@ -12,14 +12,14 @@ const steps = [
     title: "Recepção & Avaliação",
     description:
       "Envie fotos pelo WhatsApp ou traga a peça ao atelier. Analisamos estado, materiais e tipo de desgaste com o olhar de quem vive o ofício há mais de duas décadas.",
-    image: "/images/ofício-lv-detalhe.jpg",
+    image: "/images/oficio-lv-detalhe.jpg",
   },
   {
     number: "02",
     title: "Análise de Materiais",
     description:
       "Identificamos couro, tecido, borracha e ferragens para escolher tintas, colas e técnicas certas — o mesmo rigor aplicado a Louis Vuitton, Chanel e tênis de coleção.",
-    image: "/images/ofício-bancada.jpg",
+    image: "/images/oficio-bancada.jpg",
   },
   {
     number: "03",
@@ -33,14 +33,14 @@ const steps = [
     title: "Execução Artesanal",
     description:
       "Costura, tingimento, limpeza e estrutural feitos a mão na bancada. Acompanhamos a evolução com fotos de progresso.",
-    image: "/images/ofício-chanel.jpg",
+    image: "/images/oficio-chanel.jpg",
   },
   {
     number: "05",
     title: "Controle de Qualidade",
     description:
       "Inspeção final de acabamento, cor, costura e estrutura. So sai do atelier no padrão Sapataria Paulista.",
-    image: "/images/ofício-costura.jpg",
+    image: "/images/oficio-costura.jpg",
   },
 ]
 
@@ -85,7 +85,7 @@ export default function ProcessoPage() {
       <section className="relative flex min-h-[60vh] items-end overflow-hidden px-6 pb-20 pt-36 lg:px-10">
         <div className="absolute inset-0">
           <Image
-            src="/images/ofício-costura.jpg"
+            src="/images/oficio-costura.jpg"
             alt="Costura artesanal no atelier"
             fill
             className="object-cover"

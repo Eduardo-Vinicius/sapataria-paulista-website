@@ -60,28 +60,28 @@ const craftItems = [
   },
   {
     id: 12,
-    src: "/images/ofício-chanel.jpg",
+    src: "/images/oficio-chanel.jpg",
     title: "Chanel — pintura & revitalização",
     category: "Bolsas" as Category,
     caption: "Pigmentos profissionais sobre couro quilted.",
   },
   {
     id: 13,
-    src: "/images/ofício-tênis.jpg",
+    src: "/images/oficio-tenis.jpg",
     title: "Costura de tênis",
     category: "Tênis" as Category,
     caption: "Maquina industrial e mão firme no detalhe.",
   },
   {
     id: 14,
-    src: "/images/ofício-sapato.jpg",
+    src: "/images/oficio-sapato.jpg",
     title: "Acabamento de solado",
     category: "Sapatos" as Category,
     caption: "Loafer de grife sob tratamento artesanal.",
   },
   {
     id: 15,
-    src: "/images/ofício-lv-interior.jpg",
+    src: "/images/oficio-lv-interior.jpg",
     title: "Interior Louis Vuitton",
     category: "Couro" as Category,
     caption: "Precisão em ferragens e forro.",
@@ -95,7 +95,7 @@ const craftItems = [
   },
   {
     id: 17,
-    src: "/images/ofício-bolsa-costura.jpg",
+    src: "/images/oficio-bolsa-costura.jpg",
     title: "Costura em bolsa",
     category: "Bolsas" as Category,
     caption: "Agulha, couro e paciência de atelier.",
@@ -123,7 +123,7 @@ export default function GaleriaPage() {
       <section className="relative flex min-h-[60vh] items-end overflow-hidden px-6 pb-20 pt-36 lg:px-10">
         <div className="absolute inset-0">
           <Image
-            src="/images/ofício-chanel-2.jpg"
+            src="/images/oficio-chanel-2.jpg"
             alt="Restauração Chanel no atelier"
             fill
             className="object-cover"

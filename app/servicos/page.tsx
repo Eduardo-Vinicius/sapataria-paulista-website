@@ -9,7 +9,7 @@ import { ChevronDown } from "lucide-react"
 const services = [
   {
     category: "Limpeza & Higienização Premium",
-    image: "/images/ofício-lv-limpeza.jpg",
+    image: "/images/oficio-lv-limpeza.jpg",
     description:
       "Limpeza profunda que remove manchas e odores sem comprometer a integridade — de bolsas Louis Vuitton a tênis de coleção. Produtos importados e mão de atelier.",
     details: [
@@ -22,7 +22,7 @@ const services = [
   },
   {
     category: "Restauração Estrutural",
-    image: "/images/ofício-tênis.jpg",
+    image: "/images/oficio-tenis.jpg",
     description:
       "Reconstrução de entressolas, costuras, palmilhas e estruturas internas. Devolvemos forma e funcionalidade com costura industrial e acabamento artesanal.",
     details: [
@@ -35,7 +35,7 @@ const services = [
   },
   {
     category: "Troca & Ajuste de Solado",
-    image: "/images/ofício-sapato.jpg",
+    image: "/images/oficio-sapato.jpg",
     description:
       "Substituição e nívelamento de solados desgastados em sapatos sociais e de grife. Materiais de alta durabilidade com acabamento impecável.",
     details: [
@@ -48,7 +48,7 @@ const services = [
   },
   {
     category: "Pintura & Revitalização",
-    image: "/images/ofício-chanel.jpg",
+    image: "/images/oficio-chanel.jpg",
     description:
       "Restauração de cor e acabamento com tintas e pigmentos profissionais — de Chanel a peças customizadas. Efeitos sob medida para cada material.",
     details: [
@@ -61,7 +61,7 @@ const services = [
   },
   {
     category: "Couro & Acabamentos",
-    image: "/images/ofício-lv-interior.jpg",
+    image: "/images/oficio-lv-interior.jpg",
     description:
       "Tratamento especializado para bolsas, carteiras e acessórios de grife. Restauração que respeita o material e a identidade da peça.",
     details: [
@@ -178,7 +178,7 @@ export default function ServiçosPage() {
       <section className="relative flex min-h-[65vh] items-end overflow-hidden px-6 pb-20 pt-36 lg:px-10">
         <div className="absolute inset-0">
           <Image
-            src="/images/ofício-bolsa-costura.jpg"
+            src="/images/oficio-bolsa-costura.jpg"
             alt="Restauração artesanal de bolsa de grife"
             fill
             className="object-cover"
@@ -269,19 +269,19 @@ export default function ServiçosPage() {
               {[
                 {
                   title: "Tênis de Luxo",
-                  image: "/images/ofício-tênis.jpg",
+                  image: "/images/oficio-tenis.jpg",
                 },
                 {
                   title: "Sapatos & Couro",
-                  image: "/images/ofício-sapato.jpg",
+                  image: "/images/oficio-sapato.jpg",
                 },
                 {
                   title: "Bolsas & Acessórios",
-                  image: "/images/ofício-chanel-2.jpg",
+                  image: "/images/oficio-chanel-2.jpg",
                 },
                 {
                   title: "Higienização",
-                  image: "/images/ofício-lv-detalhe.jpg",
+                  image: "/images/oficio-lv-detalhe.jpg",
                 },
               ].map((item) => (
                 <div

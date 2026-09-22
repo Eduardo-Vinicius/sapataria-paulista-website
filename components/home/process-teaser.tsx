@@ -9,25 +9,25 @@ const steps = [
     number: "01",
     title: "Envie fotos",
     description: "Diagnóstico inicial pelo WhatsApp com base no estado real da peça.",
-    image: "/images/ofício-lv-detalhe.jpg",
+    image: "/images/oficio-lv-detalhe.jpg",
   },
   {
     number: "02",
     title: "Diagnóstico",
     description: "Análise de materiais, desgaste e plano de restauração sob medida.",
-    image: "/images/ofício-bancada.jpg",
+    image: "/images/oficio-bancada.jpg",
   },
   {
     number: "03",
     title: "Execução",
     description: "Ofício manual com tintas, costura e acabamentos premium.",
-    image: "/images/ofício-chanel.jpg",
+    image: "/images/oficio-chanel.jpg",
   },
   {
     number: "04",
     title: "Entrega",
     description: "Controle de qualidade rigoroso. Sua peça, restaurada.",
-    image: "/images/ofício-costura.jpg",
+    image: "/images/oficio-costura.jpg",
   },
 ]
 
