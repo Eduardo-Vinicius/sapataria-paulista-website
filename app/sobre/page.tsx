@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Shield, Target, Eye, Wrench } from "lucide-react"
 import { FounderStory } from "@/components/home/founder-story"
+import { PartnershipStory } from "@/components/home/partnership-story"
 
 const values = [
   {
@@ -56,7 +57,7 @@ export default function SobrePage() {
             Quem assina o ofício
           </h1>
           <p className="animate-on-scroll mt-6 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
-            A Sapataria Paulista e a trajetória de Thiago Landes: da Avenida
+            A Sapataria Paulista é a trajetória de Thiago Landes: da Avenida
             Paulista ao atelier de restauração de luxo na Galeria 2001.
           </p>
         </div>
@@ -69,10 +70,10 @@ export default function SobrePage() {
           <div className="animate-on-scroll flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-20">
             <div className="relative aspect-[4/5] w-full overflow-hidden lg:w-[45%]">
               <Image
-                src="/images/thiago-101.jpg"
-                alt="Thiago Landes em trabalho de precisão"
+                src="/images/thiago-retrato.jpg"
+                alt="Retrato de Thiago Landes, fundador da Sapataria Paulista"
                 fill
-                className="object-cover"
+                className="object-cover object-[center_20%]"
                 sizes="(max-width: 1024px) 100vw, 45vw"
               />
             </div>
@@ -103,6 +104,8 @@ export default function SobrePage() {
           </div>
         </div>
       </section>
+
+      <PartnershipStory />
 
       <section className="bg-card/50 px-6 py-24 lg:px-10 lg:py-32">
         <div className="mx-auto max-w-[1400px]">

@@ -8,12 +8,14 @@ import { ProcessTeaser } from "@/components/home/process-teaser"
 import { Testimonials } from "@/components/home/testimonials"
 import { FinalCta } from "@/components/home/final-cta"
 import { FounderStory } from "@/components/home/founder-story"
+import { PartnershipStory } from "@/components/home/partnership-story"
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <FounderStory />
+      <PartnershipStory />
       <CredibilityBar />
       <ServicesPreview />
       <BeforeAfterPreview />

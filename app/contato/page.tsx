@@ -112,10 +112,10 @@ export default function ContatoPage() {
 
               <div className="animate-on-scroll relative hidden aspect-[4/5] overflow-hidden lg:block">
                 <Image
-                  src="/images/thiago-101.jpg"
-                  alt="Thiago Landes no atelier"
+                  src="/images/thiago-retrato.jpg"
+                  alt="Thiago Landes, fundador da Sapataria Paulista"
                   fill
-                  className="object-cover"
+                  className="object-cover object-[center_20%]"
                   sizes="40vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
