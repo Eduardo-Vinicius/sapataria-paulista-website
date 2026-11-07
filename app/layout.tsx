@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Sapataria Paulista | Thiago Landes — Restauração de Luxo",
   description:
-    "Atelier de Thiago Landes na Av. Paulista. Restauração premium de tênis, sapatos e bolsas de grife. Da engraxate na Paulista ao padrão maison.",
+    "Atelier de Thiago Landes na Av. Paulista. Restauração premium de tênis, sapatos e bolsas de grife, com mais de duas décadas de experiência.",
   generator: "v0.app",
   icons: {
     icon: [

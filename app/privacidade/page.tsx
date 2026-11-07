@@ -44,7 +44,7 @@ export default function PrivacidadePage() {
                 3. Armazenamento
               </h2>
               <p>
-                {"Os dados são armazenados de forma segura e por tempo indeterminado, podendo ser excluidos mediante solicitação do titular."}
+                {"Os dados são armazenados de forma segura e por tempo indeterminado, podendo ser excluídos mediante solicitação do titular."}
               </p>
             </div>
 

@@ -11,7 +11,7 @@ const services = [
     category: "Limpeza & Higienização Premium",
     image: "/images/oficio-lv-limpeza.jpg",
     description:
-      "Limpeza profunda que remove manchas e odores sem comprometer a integridade — de bolsas Louis Vuitton a tênis de coleção. Produtos importados e mão de atelier.",
+      "Limpeza profunda que remove manchas e odores sem comprometer a integridade — de bolsas Louis Vuitton a tênis de coleção. Produtos importados e trabalho feito à mão.",
     details: [
       "Limpeza profunda de tecidos, camurça, nubuck e couro",
       "Remoção de manchas dificeis e encardidos",
@@ -195,8 +195,8 @@ export default function ServiçosPage() {
             O que restauramos
           </h1>
           <p className="animate-on-scroll mt-6 max-w-lg text-sm leading-relaxed text-white/55">
-            Tênis, sapatos, bolsas e acessórios de grife — cada peça com o
-            padrão de ofício de Thiago Landes e da equipe Sapataria Paulista.
+            Tênis, sapatos, bolsas e acessórios de grife, restaurados por
+            Thiago Landes e pela equipe da Sapataria Paulista.
           </p>
         </div>
       </section>
@@ -217,15 +217,15 @@ export default function ServiçosPage() {
             </div>
             <div className="flex flex-1 flex-col gap-6">
               <p className="text-[10px] uppercase tracking-[0.45em] text-accent">
-                Nosso Espaco
+                Nosso Espaço
               </p>
               <h2 className="font-serif text-3xl text-foreground lg:text-4xl">
                 Atelier na Galeria 2001
               </h2>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 Na Avenida Paulista, o atelier reúne bancadas de restauração,
-                costura e limpeza premium. Cada projeto e tratado como obra —
-                sob a lideranca de Thiago Landes.
+                costura e limpeza premium. Cada projeto é acompanhado de perto
+                por Thiago Landes.
               </p>
               <Link
                 href="https://wa.me/5511999999999"

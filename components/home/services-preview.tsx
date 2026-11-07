@@ -22,7 +22,7 @@ const services = [
   },
   {
     title: "Higienização",
-    description: "Limpeza que restaura a pelezinha e a nobreza do material.",
+    description: "Limpeza profunda que preserva a cor e a textura do material.",
     image: "/images/oficio-lv-limpeza.jpg",
   },
 ]

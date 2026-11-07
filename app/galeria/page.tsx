@@ -49,7 +49,7 @@ const craftItems = [
     src: "/images/thiago-147.jpg",
     title: "Thiago Landes",
     category: "Atelier" as Category,
-    caption: "O fundador em ação — o gesto que define o ofício.",
+    caption: "O fundador em ação, onde tudo começou: na Avenida Paulista.",
   },
   {
     id: 11,
@@ -91,14 +91,14 @@ const craftItems = [
     src: "/images/atelier-bancada.jpg",
     title: "Bancada do atelier",
     category: "Atelier" as Category,
-    caption: "Galeria 2001 — onde a peça vira obra.",
+    caption: "Nosso atelier na Galeria 2001.",
   },
   {
     id: 17,
     src: "/images/oficio-bolsa-costura.jpg",
     title: "Costura em bolsa",
     category: "Bolsas" as Category,
-    caption: "Agulha, couro e paciência de atelier.",
+    caption: "Costura feita à mão, ponto a ponto.",
   },
 ]
 
@@ -137,11 +137,11 @@ export default function GaleriaPage() {
             Galeria
           </p>
           <h1 className="animate-on-scroll mt-6 font-serif text-4xl text-white lg:text-7xl">
-            Ofício em imagens
+            Nosso trabalho
           </h1>
           <p className="animate-on-scroll mt-6 max-w-lg text-sm leading-relaxed text-white/55">
-            Antes e depois, close-ups do atelier e o trabalho de Thiago Landes —
-            a prova visual do padrão Sapataria Paulista.
+            Antes e depois, detalhes do atelier e o trabalho de Thiago Landes e
+            da equipe Sapataria Paulista.
           </p>
         </div>
       </section>
@@ -170,7 +170,7 @@ export default function GaleriaPage() {
             <div className="animate-on-scroll mb-10">
               <p className="text-[10px] uppercase tracking-[0.4em] text-accent">Atelier</p>
               <h2 className="mt-3 font-serif text-3xl text-foreground lg:text-4xl">
-                Bastidores do ofício
+                Por dentro do atelier
               </h2>
             </div>
             <div className="stagger-children grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

@@ -11,7 +11,7 @@ const steps = [
     number: "01",
     title: "Recepção & Avaliação",
     description:
-      "Envie fotos pelo WhatsApp ou traga a peça ao atelier. Analisamos estado, materiais e tipo de desgaste com o olhar de quem vive o ofício há mais de duas décadas.",
+      "Envie fotos pelo WhatsApp ou traga a peça ao atelier. Analisamos estado, materiais e tipo de desgaste com a experiência de mais de duas décadas no ramo.",
     image: "/images/oficio-lv-detalhe.jpg",
   },
   {
@@ -39,7 +39,7 @@ const steps = [
     number: "05",
     title: "Controle de Qualidade",
     description:
-      "Inspeção final de acabamento, cor, costura e estrutura. So sai do atelier no padrão Sapataria Paulista.",
+      "Inspeção final de acabamento, cor, costura e estrutura. Só sai do atelier quando está no padrão Sapataria Paulista.",
     image: "/images/oficio-costura.jpg",
   },
 ]

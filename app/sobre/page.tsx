@@ -18,7 +18,7 @@ const values = [
     icon: Target,
     title: "Precisão",
     description:
-      "Do diagnóstico ao acabamento, Thiago e a equipe buscam o detalhe que devolve a pelezinha original da peça.",
+      "Do diagnóstico ao acabamento, Thiago e a equipe cuidam de cada detalhe para devolver o aspecto original da peça.",
   },
   {
     icon: Eye,
@@ -30,7 +30,7 @@ const values = [
     icon: Wrench,
     title: "Artesanato",
     description:
-      "Técnicas tradicionais com materiais premium. Cada restauração é assinada pelo ofício — não pelo volume.",
+      "Técnicas tradicionais e materiais de primeira linha. Aqui, a qualidade vem antes da quantidade.",
   },
 ]
 
@@ -54,7 +54,7 @@ export default function SobrePage() {
         <div className="relative z-10 mx-auto w-full max-w-[1400px]">
           <p className="animate-on-scroll text-[10px] uppercase tracking-[0.4em] text-accent">Sobre</p>
           <h1 className="animate-on-scroll mt-4 font-serif text-4xl text-white lg:text-7xl">
-            Quem assina o ofício
+            Nossa história
           </h1>
           <p className="animate-on-scroll mt-6 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
             A Sapataria Paulista é a trajetória de Thiago Landes: da Avenida
@@ -122,7 +122,7 @@ export default function SobrePage() {
             <div className="flex flex-1 flex-col gap-6">
               <p className="text-[10px] uppercase tracking-[0.4em] text-accent">O Atelier</p>
               <h2 className="font-serif text-3xl text-foreground lg:text-4xl">
-                Galeria 2001 — onde a peça vira obra
+                Nosso atelier na Galeria 2001
               </h2>
               <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
                 <p>
@@ -131,8 +131,8 @@ export default function SobrePage() {
                   Nacional.
                 </p>
                 <p>
-                  Ferramentas profissionais, tintas e pigmentos importados,
-                  protocolos inspirados em maisons europeias. Cada etapa e
+                  Ferramentas profissionais, tintas e pigmentos importados e
+                  um processo cuidadoso do início ao fim. Cada etapa é
                   fotografada e aprovada antes da entrega.
                 </p>
               </div>
@@ -168,16 +168,16 @@ export default function SobrePage() {
             src="/images/thiago-147.jpg"
             alt="Thiago Landes"
             fill
-            className="object-cover object-[center_30%] opacity-25"
+            className="object-cover object-[center_30%]"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-primary/90" />
+          <div className="absolute inset-0 bg-black/80" />
         </div>
         <div className="relative z-10 mx-auto flex max-w-[1400px] flex-col items-center gap-8 text-center">
           <h2 className="animate-on-scroll max-w-2xl font-serif text-3xl text-white lg:text-5xl">
-            Conheca o atelier e quem cuida da sua peça
+            Conheça o atelier e quem cuida da sua peça
           </h2>
-          <p className="animate-on-scroll max-w-md text-sm leading-relaxed text-white/50">
+          <p className="animate-on-scroll max-w-md text-sm leading-relaxed text-white/60">
             Visite-nos na Av. Paulista ou fale pelo WhatsApp para agendar avaliação.
           </p>
           <div className="animate-on-scroll flex flex-col gap-4 sm:flex-row">

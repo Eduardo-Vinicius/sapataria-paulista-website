@@ -23,7 +23,7 @@ export function FinalCta() {
       <div className="reveal relative z-10 flex flex-col items-center gap-7 px-6 text-center">
         <p className="text-[10px] uppercase tracking-ultra-wide text-accent">Comece agora</p>
         <h2 className="max-w-3xl font-serif text-3xl leading-tight text-white lg:text-6xl">
-          Envie fotos. Receba o diagnóstico de quem vive o ofício.
+          Envie fotos. Receba uma avaliação de quem entende do assunto.
         </h2>
         <p className="max-w-md text-sm leading-relaxed text-white/45">
           Thiago e a equipe analisam sua peça e retornam com um plano claro —

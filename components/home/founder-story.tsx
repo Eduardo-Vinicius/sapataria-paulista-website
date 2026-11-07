@@ -29,9 +29,9 @@ export function FounderStory() {
             Thiago Landes
           </h2>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Aos 13 anos engraxava sapatos na Avenida Paulista. Hoje assina
-            restaurações de tênis, sapatos e bolsas de grife no atelier da
-            Sapataria Paulista — a mesma mão, o mesmo ofício, um outro patamar.
+            Aos 13 anos engraxava sapatos na Avenida Paulista. Hoje comanda
+            o atelier da Sapataria Paulista, onde cuida pessoalmente de
+            tênis, sapatos e bolsas de grife.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export function FounderStory() {
                 Da Paulista ao atelier
               </p>
               <p className="mt-3 font-serif text-xl leading-snug text-white md:text-2xl lg:text-3xl">
-                {"Mais de duas décadas dedicadas ao couro, ao solado e ao detalhe que só o olho treinado enxerga."}
+                {"Mais de duas décadas de experiência com couro, solados e acabamentos."}
               </p>
             </div>
             <div className="grid grid-cols-3 gap-2 sm:gap-3">
@@ -76,9 +76,9 @@ export function FounderStory() {
 
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
           <div className="reveal flex flex-col justify-center gap-6">
-            <p className="text-[10px] uppercase tracking-[0.4em] text-accent">História & Maestria</p>
+            <p className="text-[10px] uppercase tracking-[0.4em] text-accent">Trajetória</p>
             <h3 className="font-serif text-3xl text-foreground lg:text-4xl">
-              Origem na rua. Padrão de maison.
+              Da rua ao atelier de luxo
             </h3>
             <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground md:text-[15px]">
               <p>
@@ -88,9 +88,10 @@ export function FounderStory() {
               </p>
               <p>
                 No atelier da Galeria 2001, ao lado do Conjunto Nacional, ele
-                lidera uma equipe que trata cada peça como obra: Louis Vuitton,
-                Chanel, Ferragamo, tênis de coleção e couros raros — com
-                materiais importados e acabamento de museu.
+                lidera uma equipe que cuida de cada peça com atenção total:
+                Louis Vuitton, Chanel, Ferragamo, tênis de coleção e couros
+                especiais, sempre com materiais importados e acabamento
+                impecável.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3 pt-2">
