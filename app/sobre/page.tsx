@@ -11,6 +11,7 @@ import { FounderVideo } from "@/components/sobre/founder-video"
 import { Team } from "@/components/sobre/team"
 import { FACTS } from "@/lib/content/site-facts"
 import { whatsappLink } from "@/lib/contact"
+import { WHATSAPP_MESSAGES } from "@/lib/content/whatsapp-messages"
 
 const values = [
   {
@@ -159,7 +160,7 @@ export default function SobrePage() {
               Contato
             </Link>
             <Link
-              href={whatsappLink()}
+              href={whatsappLink(WHATSAPP_MESSAGES.visit)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center border border-white/20 px-8 py-4 text-xs uppercase tracking-[0.2em] text-white/80 transition-all duration-300 hover:border-white/40 hover:text-white"

@@ -7,6 +7,7 @@ import { X } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { ComparisonSlider } from "@/components/comparison-slider"
 import { whatsappLink } from "@/lib/contact"
+import { galleryCaseMessage } from "@/lib/content/whatsapp-messages"
 import { CASES, type BeforeAfterCase } from "@/lib/content/cases"
 import { GALLERY_CATEGORIES, GALLERY_PHOTOS, type GalleryCategory, type GalleryPhoto } from "@/lib/content/gallery"
 
@@ -167,7 +168,7 @@ export default function GaleriaPage() {
               <h3 className="font-serif text-2xl text-foreground">{selectedCase.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{selectedCase.service}</p>
               <Link
-                href={whatsappLink("Olá! Vi um caso parecido na galeria e gostaria de enviar fotos da minha peça.")}
+                href={whatsappLink(galleryCaseMessage(selectedCase.title, selectedCase.service))}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-2 self-start bg-accent px-6 py-3 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"

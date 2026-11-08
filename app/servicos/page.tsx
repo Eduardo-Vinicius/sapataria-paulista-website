@@ -5,6 +5,7 @@ import Link from "next/link"
 import { CalendarClock, CreditCard } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { whatsappLink } from "@/lib/contact"
+import { WHATSAPP_MESSAGES, serviceQuoteMessage } from "@/lib/content/whatsapp-messages"
 import { SERVICES, type Service } from "@/lib/content/services"
 import { TERMS } from "@/lib/content/site-facts"
 
@@ -50,7 +51,7 @@ function ServiceSection({ service, index }: { service: Service; index: number })
           ))}
         </ul>
         <Link
-          href={whatsappLink(`Olá! Gostaria de um orçamento de ${service.title.toLowerCase()}. Vou enviar fotos da peça.`)}
+          href={whatsappLink(serviceQuoteMessage(service.title))}
           target="_blank"
           rel="noopener noreferrer"
           className="group mt-2 inline-flex items-center gap-2 self-start bg-accent px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-accent-foreground transition-colors hover:bg-accent/90"
@@ -141,7 +142,7 @@ export default function ServicosPage() {
           <p className="text-[10px] uppercase tracking-ultra-wide text-accent">Próximo passo</p>
           <h2 className="max-w-2xl font-serif text-3xl text-white lg:text-5xl">Envie fotos. Receba uma avaliação.</h2>
           <Link
-            href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
+            href={whatsappLink(WHATSAPP_MESSAGES.evaluation)}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 bg-accent px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-accent-foreground transition-colors hover:bg-accent/90"

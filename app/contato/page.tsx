@@ -13,6 +13,7 @@ import {
   OPENING_HOURS,
   HOW_TO_GET_THERE,
 } from "@/lib/contact"
+import { WHATSAPP_MESSAGES, contactFormMessage } from "@/lib/content/whatsapp-messages"
 
 const contactInfo = [
   {
@@ -118,7 +119,7 @@ export default function ContatoPage() {
                     <Instagram className="h-4 w-4" />
                   </Link>
                   <Link
-                    href={whatsappLink()}
+                    href={whatsappLink(WHATSAPP_MESSAGES.general)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-10 w-10 items-center justify-center border border-border text-muted-foreground transition-all hover:border-accent hover:text-accent"
@@ -166,7 +167,7 @@ export default function ContatoPage() {
                   no horário de atendimento.
                 </p>
                 <Link
-                  href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
+                  href={whatsappLink(WHATSAPP_MESSAGES.evaluation)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group mt-6 inline-flex items-center gap-2 bg-accent px-6 py-3 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"
@@ -210,14 +211,12 @@ export default function ContatoPage() {
                 onSubmit={(e) => {
                   e.preventDefault()
                   const data = new FormData(e.currentTarget)
-                  const message = [
-                    "Olá! Vim pelo site da Sapataria Paulista.",
-                    `Nome: ${data.get("name") || "-"}`,
-                    `E-mail: ${data.get("email") || "-"}`,
-                    `Telefone: ${data.get("phone") || "-"}`,
-                    "",
-                    String(data.get("message") || ""),
-                  ].join("\n")
+                  const message = contactFormMessage({
+                    name: String(data.get("name") || ""),
+                    email: String(data.get("email") || ""),
+                    phone: String(data.get("phone") || ""),
+                    message: String(data.get("message") || ""),
+                  })
                   window.open(whatsappLink(message), "_blank", "noopener,noreferrer")
                 }}
               >

@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Instagram, MessageCircle, Youtube } from "lucide-react"
 import { whatsappLink, INSTAGRAM_URL, YOUTUBE_URL, ADDRESS, OPENING_HOURS, PHONE_DISPLAY } from "@/lib/contact"
+import { WHATSAPP_MESSAGES } from "@/lib/content/whatsapp-messages"
 import { HASHTAG } from "@/lib/content/site-facts"
 
 const navLinks = [
@@ -63,7 +64,7 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <p className="text-[9px] uppercase tracking-ultra-wide text-muted-foreground">Social</p>
             <div className="flex items-center gap-3">
-              <Link href={whatsappLink()} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="WhatsApp">
+              <Link href={whatsappLink(WHATSAPP_MESSAGES.general)} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="WhatsApp">
                 <MessageCircle className="h-4 w-4" />
               </Link>
               <Link href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="Instagram">

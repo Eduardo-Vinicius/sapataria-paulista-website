@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Instagram, Menu, X, Youtube } from "lucide-react"
 import { whatsappLink, INSTAGRAM_URL, YOUTUBE_URL } from "@/lib/contact"
+import { WHATSAPP_MESSAGES } from "@/lib/content/whatsapp-messages"
 
 const socialLinks = [
   { href: INSTAGRAM_URL, label: "Instagram", icon: Instagram },
@@ -85,7 +86,7 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
+              href={whatsappLink(WHATSAPP_MESSAGES.evaluation)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-accent/60 bg-accent/10 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-accent/20"
@@ -139,7 +140,7 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href={whatsappLink()}
+            href={whatsappLink(WHATSAPP_MESSAGES.evaluation)}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}

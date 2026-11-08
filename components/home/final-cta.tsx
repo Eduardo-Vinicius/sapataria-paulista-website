@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { whatsappLink } from "@/lib/contact"
+import { WHATSAPP_MESSAGES } from "@/lib/content/whatsapp-messages"
 import { HASHTAG } from "@/lib/content/site-facts"
 
 export function FinalCta() {
@@ -32,7 +33,7 @@ export function FinalCta() {
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row">
           <Link
-            href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
+            href={whatsappLink(WHATSAPP_MESSAGES.evaluation)}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 bg-accent px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-accent-foreground transition-all duration-500 hover:bg-accent/90"

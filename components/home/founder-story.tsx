@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { whatsappLink } from "@/lib/contact"
+import { WHATSAPP_MESSAGES } from "@/lib/content/whatsapp-messages"
 import { FACTS } from "@/lib/content/site-facts"
 
 export function FounderTeaser() {
@@ -135,7 +136,7 @@ export function FounderStory() {
             </div>
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
-                href={whatsappLink()}
+                href={whatsappLink(WHATSAPP_MESSAGES.general)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-accent px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"

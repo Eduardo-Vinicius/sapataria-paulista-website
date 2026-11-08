@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Camera, MessageCircle, FileText, CheckCircle } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { whatsappLink } from "@/lib/contact"
+import { WHATSAPP_MESSAGES } from "@/lib/content/whatsapp-messages"
 import { TERMS } from "@/lib/content/site-facts"
 
 const steps = [
@@ -76,7 +77,7 @@ export default function AvaliacaoPage() {
           </div>
           <div className="mt-12 flex justify-center">
             <Link
-              href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
+              href={whatsappLink(WHATSAPP_MESSAGES.evaluation)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-accent px-8 py-4 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"

@@ -6,6 +6,7 @@ import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { whatsappLink } from "@/lib/contact"
+import { WHATSAPP_MESSAGES } from "@/lib/content/whatsapp-messages"
 import { PROCESS_STEPS } from "@/lib/content/process"
 import { TERMS } from "@/lib/content/site-facts"
 import { BRANDS } from "@/lib/content/brands"
@@ -103,7 +104,7 @@ export default function ProcessoPage() {
             Pronto para restaurar sua peça?
           </h2>
           <Link
-            href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
+            href={whatsappLink(WHATSAPP_MESSAGES.evaluation)}
             target="_blank"
             rel="noopener noreferrer"
             className="animate-on-scroll group inline-flex items-center gap-2 bg-accent px-8 py-4 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"
