@@ -18,8 +18,8 @@ export function Hero() {
     <section className="relative flex min-h-[100dvh] items-end justify-center overflow-hidden pb-20 pt-32 md:items-center md:pb-0 md:pt-0">
       <div className="absolute inset-0">
         <Image
-          src="/images/capa2.png"
-          alt="Atelier de restauração premium Sapataria Paulista"
+          src="/images/oficio-chanel.jpg"
+          alt="Bolsa Chanel sendo pintada à mão no atelier da Sapataria Paulista"
           fill
           className={`object-cover transition-transform duration-[8s] ease-out ${
             loaded ? "scale-100" : "scale-110"
@@ -45,7 +45,7 @@ export function Hero() {
             loaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
-          Restauração
+          Restauração{" "}
           <span className="mt-1 block text-accent">de Luxo</span>
         </h1>
 
@@ -54,8 +54,8 @@ export function Hero() {
             loaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
-          Atelier paulista liderado por Thiago Landes. Tênis, sapatos e bolsas
-          de grife restaurados com precisão artesanal.
+          Atelier de Thiago Landes na Avenida Paulista. Bolsas, sapatos e
+          tênis de grife restaurados à mão.
         </p>
 
         <div
@@ -64,13 +64,13 @@ export function Hero() {
           }`}
         >
           <Link
-            href={whatsappLink()}
+            href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-accent px-9 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-accent-foreground transition-all duration-500 hover:bg-accent/90"
           >
             <MessageCircle className="h-4 w-4" />
-            Solicitar Avaliação
+            Enviar fotos pelo WhatsApp
           </Link>
           <Link
             href="/sobre"

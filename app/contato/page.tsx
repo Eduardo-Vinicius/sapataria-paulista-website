@@ -3,24 +3,42 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { MapPin, Clock, MessageCircle, Instagram, Phone } from "lucide-react"
-import { whatsappLink, PHONE_DISPLAY, INSTAGRAM_URL } from "@/lib/contact"
+import { MapPin, Clock, MessageCircle, Instagram, Phone, Youtube, TrainFront } from "lucide-react"
+import {
+  whatsappLink,
+  PHONE_DISPLAY,
+  INSTAGRAM_URL,
+  YOUTUBE_URL,
+  ADDRESS,
+  OPENING_HOURS,
+  HOW_TO_GET_THERE,
+} from "@/lib/contact"
 
 const contactInfo = [
   {
     icon: MapPin,
     title: "Endereço",
-    lines: ["Av. Paulista 2001 (sobreloja)", "Bela Vista, São Paulo - SP", "CEP 01311-300"],
+    lines: [
+      ADDRESS.street,
+      ADDRESS.venue,
+      `${ADDRESS.district}, ${ADDRESS.city} - ${ADDRESS.state}`,
+      `CEP ${ADDRESS.postalCode}`,
+    ],
   },
   {
     icon: Clock,
     title: "Horário",
-    lines: ["Segunda a Sexta: 9h - 18h", "Sábado: 9h - 13h", "Domingo: Fechado"],
+    lines: OPENING_HOURS.map((hours) => `${hours.label}: ${hours.value}`),
   },
   {
     icon: Phone,
-    title: "Telefone",
-    lines: [PHONE_DISPLAY, "WhatsApp disponível"],
+    title: "Telefone e WhatsApp",
+    lines: [PHONE_DISPLAY],
+  },
+  {
+    icon: TrainFront,
+    title: "Como chegar",
+    lines: [HOW_TO_GET_THERE.transit, ...(HOW_TO_GET_THERE.parking ? [HOW_TO_GET_THERE.parking] : [])],
   },
 ]
 
@@ -108,6 +126,17 @@ export default function ContatoPage() {
                   >
                     <MessageCircle className="h-4 w-4" />
                   </Link>
+                  {YOUTUBE_URL && (
+                    <Link
+                      href={YOUTUBE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex h-10 w-10 items-center justify-center border border-border text-muted-foreground transition-all hover:border-accent hover:text-accent"
+                      aria-label="YouTube"
+                    >
+                      <Youtube className="h-4 w-4" />
+                    </Link>
+                  )}
                 </div>
               </div>
 
@@ -127,17 +156,17 @@ export default function ContatoPage() {
 
               <div className="animate-on-scroll border border-accent/30 bg-card p-8">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                  Atendimento prioritario
+                  Atendimento prioritário
                 </p>
                 <h3 className="mt-3 font-serif text-xl text-foreground">
                   WhatsApp é o canal mais rápido
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Para avaliação, envie fotos pelo WhatsApp. Respondemos em
-                  minutos no horário comercial.
+                  Para avaliação, envie fotos da peça pelo WhatsApp. Respondemos
+                  no horário de atendimento.
                 </p>
                 <Link
-                  href={whatsappLink("Olá! Gostaria de uma avaliação.")}
+                  href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group mt-6 inline-flex items-center gap-2 bg-accent px-6 py-3 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"

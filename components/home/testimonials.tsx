@@ -1,100 +1,66 @@
 "use client"
 
+import Image from "next/image"
+import Link from "next/link"
+import { Star } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { useState, useEffect, useCallback } from "react"
-
-const testimonials = [
-  {
-    text: "Achei que meu tênis estava perdido. Voltou melhor do que quando comprei — o cuidado do Thiago é nota.",
-    name: "Ricardo M.",
-    item: "Air Jordan 1 Retro High OG",
-  },
-  {
-    text: "Profissionalismo em cada detalhe. Minha bolsa Gucci ficou perfeita nas mãos do atelier.",
-    name: "Fernanda L.",
-    item: "Bolsa Gucci Marmont",
-  },
-  {
-    text: "O acabamento e a atenção ao detalhe são de outro nível. Vale cada centavo.",
-    name: "André S.",
-    item: "Sapatos Ferragamo",
-  },
-  {
-    text: "Transparência e qualidade que inspiram confiança. Sapataria Paulista é referência.",
-    name: "Camila R.",
-    item: "Tênis Balenciaga Triple S",
-  },
-]
+import { GOOGLE_REVIEWS, TESTIMONIALS } from "@/lib/content/testimonials"
 
 export function Testimonials() {
   const ref = useScrollAnimation()
-  const [current, setCurrent] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
 
-  const goTo = useCallback((index: number) => {
-    if (isTransitioning) return
-    setIsTransitioning(true)
-    setTimeout(() => {
-      setCurrent(index)
-      setIsTransitioning(false)
-    }, 400)
-  }, [isTransitioning])
-
-  // Auto-advance
-  useEffect(() => {
-    const timer = setInterval(() => {
-      goTo((current + 1) % testimonials.length)
-    }, 6000)
-    return () => clearInterval(timer)
-  }, [current, goTo])
+  if (TESTIMONIALS.length === 0) return null
 
   return (
-    <section ref={ref} className="bg-card px-6 py-24 lg:px-10 lg:py-36">
+    <section ref={ref} className="bg-card px-6 py-24 lg:px-10 lg:py-32">
       <div className="mx-auto max-w-[1400px]">
-        <div className="reveal flex flex-col items-center gap-16 text-center">
-          <p className="text-[10px] uppercase tracking-ultra-wide text-accent">
-            Depoimentos
-          </p>
-
-          {/* Quote */}
-          <div className="relative mx-auto min-h-[180px] max-w-3xl flex flex-col items-center justify-center gap-8">
-            <blockquote
-              className={`font-serif text-2xl leading-relaxed text-foreground transition-all duration-500 md:text-3xl lg:text-4xl ${
-                isTransitioning ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"
-              }`}
-            >
-              {`"${testimonials[current].text}"`}
-            </blockquote>
-            <div
-              className={`flex flex-col items-center gap-1 transition-all duration-500 delay-100 ${
-                isTransitioning ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              <span className="text-xs font-medium text-foreground">
-                {testimonials[current].name}
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                {testimonials[current].item}
+        <div className="reveal mb-14 flex flex-col items-center gap-4 text-center">
+          <p className="text-[10px] uppercase tracking-ultra-wide text-accent">Depoimentos</p>
+          <h2 className="font-serif text-3xl text-foreground lg:text-5xl">Quem confia no atelier</h2>
+          {GOOGLE_REVIEWS.rating && GOOGLE_REVIEWS.total && (
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Star className="h-4 w-4 fill-accent text-accent" />
+              <span>
+                {GOOGLE_REVIEWS.rating.toLocaleString("pt-BR", { minimumFractionDigits: 1 })} no Google ·{" "}
+                {GOOGLE_REVIEWS.total} avaliações
               </span>
             </div>
-          </div>
-
-          {/* Dots */}
-          <div className="flex items-center gap-3">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                className={`h-1.5 transition-all duration-500 ${
-                  i === current
-                    ? "w-8 bg-accent"
-                    : "w-1.5 bg-border hover:bg-muted-foreground"
-                }`}
-                aria-label={`Depoimento ${i + 1}`}
-              />
-            ))}
-          </div>
+          )}
         </div>
+
+        <div className="stagger grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {TESTIMONIALS.map((testimonial) => (
+            <figure key={testimonial.name + testimonial.item} className="flex flex-col gap-6 border border-border/50 bg-background p-8">
+              <blockquote className="font-serif text-lg leading-relaxed text-foreground">
+                {`“${testimonial.text}”`}
+              </blockquote>
+              <figcaption className="mt-auto flex items-center gap-3">
+                {testimonial.photo && (
+                  <span className="relative h-10 w-10 overflow-hidden rounded-full">
+                    <Image src={testimonial.photo} alt={testimonial.name} fill className="object-cover" sizes="40px" />
+                  </span>
+                )}
+                <span className="flex flex-col">
+                  <span className="text-xs font-medium text-foreground">{testimonial.name}</span>
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{testimonial.item}</span>
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        {GOOGLE_REVIEWS.url && (
+          <div className="reveal mt-12 flex justify-center">
+            <Link
+              href={GOOGLE_REVIEWS.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] uppercase tracking-[0.2em] text-accent transition-colors hover:text-foreground"
+            >
+              Ver todas as avaliações no Google
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   )

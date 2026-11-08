@@ -2,8 +2,13 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { whatsappLink } from "@/lib/contact"
+import { Instagram, Menu, X, Youtube } from "lucide-react"
+import { whatsappLink, INSTAGRAM_URL, YOUTUBE_URL } from "@/lib/contact"
+
+const socialLinks = [
+  { href: INSTAGRAM_URL, label: "Instagram", icon: Instagram },
+  ...(YOUTUBE_URL ? [{ href: YOUTUBE_URL, label: "YouTube", icon: Youtube }] : []),
+]
 
 const navLinks = [
   { href: "/servicos", label: "Serviços" },
@@ -66,15 +71,29 @@ export function Header() {
           </nav>
 
           {/* Desktop CTA */}
-          <Link
-            href={whatsappLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full border border-accent/60 bg-accent/10 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-accent/20 lg:inline-flex"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            <span>WhatsApp</span>
-          </Link>
+          <div className="hidden items-center gap-4 lg:flex">
+            {socialLinks.map((social) => (
+              <Link
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="text-white/70 transition-colors hover:text-white"
+              >
+                <social.icon className="h-4 w-4" />
+              </Link>
+            ))}
+            <Link
+              href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-accent/60 bg-accent/10 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-accent/20"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span>WhatsApp</span>
+            </Link>
+          </div>
 
           {/* Mobile menu button */}
           <button
@@ -129,6 +148,21 @@ export function Header() {
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             <span>WhatsApp</span>
           </Link>
+          <div className="flex items-center gap-6">
+            {socialLinks.map((social) => (
+              <Link
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                onClick={() => setMenuOpen(false)}
+                className="text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <social.icon className="h-5 w-5" />
+              </Link>
+            ))}
+          </div>
         </nav>
       </div>
     </>

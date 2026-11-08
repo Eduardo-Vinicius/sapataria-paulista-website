@@ -1,97 +1,40 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
+import { Camera, MessageCircle, FileText, CheckCircle } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { Camera, MessageCircle, Clock, CheckCircle } from "lucide-react"
 import { whatsappLink } from "@/lib/contact"
+import { TERMS } from "@/lib/content/site-facts"
 
-const pricingTiers = [
-  {
-    service: "Higienização Premium",
-    startingFrom: "R$ 120",
-    description: "Limpeza profunda, desodorização e proteção.",
-    includes: [
-      "Limpeza profunda completa",
-      "Desodorização antibacteriana",
-      "Impermeabilização básica",
-    ],
-  },
-  {
-    service: "Restauração Simples",
-    startingFrom: "R$ 200",
-    description: "Reparos pontuais, polimento e acabamento.",
-    includes: [
-      "Reparo de desgaste localizado",
-      "Polimento e acabamento",
-      "Proteção final",
-    ],
-  },
-  {
-    service: "Restauração Completa",
-    startingFrom: "R$ 350",
-    description: "Restauração integral com múltiplas etapas.",
-    includes: [
-      "Diagnóstico completo",
-      "Restauração estrutural e estética",
-      "Tingimento e acabamento premium",
-      "Controle de qualidade rigoroso",
-    ],
-  },
-  {
-    service: "Troca de Solado",
-    startingFrom: "R$ 280",
-    description: "Substituição profissional com materiais premium.",
-    includes: [
-      "Remoção e preparação",
-      "Solado de alta qualidade",
-      "Colagem industrial",
-      "Acabamento impecável",
-    ],
-  },
-  {
-    service: "Bolsas & Acessórios",
-    startingFrom: "R$ 180",
-    description: "Cuidados especializados para couro fino.",
-    includes: [
-      "Hidratação de couro",
-      "Restauração de cor",
-      "Reparo de ferragens",
-    ],
-  },
-  {
-    service: "Customização",
-    startingFrom: "Sob consulta",
-    description: "Projetos especiais e personalizações sob medida.",
-    includes: [
-      "Tingimento personalizado",
-      "Mudança de cor",
-      "Efeitos especiais",
-      "Projeto sob medida",
-    ],
-  },
-]
-
-const uploadSteps = [
+const steps = [
   {
     icon: Camera,
-    title: "Fotografe seu item",
-    description: "Tire fotos claras de todos os ângulos, incluindo detalhes do dano.",
+    title: "Fotografe a peça",
+    description: "Fotos com boa luz, de frente, de lado, por dentro e dos detalhes que precisam de cuidado.",
   },
   {
     icon: MessageCircle,
     title: "Envie pelo WhatsApp",
-    description: "Mande as fotos com uma breve descrição do que precisa.",
+    description: "Mande as fotos com uma breve descrição do que você quer resolver.",
   },
   {
-    icon: Clock,
-    title: "Aguarde o retorno",
-    description: "Respondemos em minutos com diagnóstico e orçamento.",
+    icon: FileText,
+    title: "Receba o orçamento",
+    description: `Você recebe o orçamento com o serviço indicado e o prazo, em média de ${TERMS.turnaround}.`,
   },
   {
     icon: CheckCircle,
-    title: "Aprove e envie",
-    description: "Após aprovar, envie ou traga o item ao atelier.",
+    title: "Aprove e traga a peça",
+    description: `Com a aprovação, a peça entra na bancada. ${TERMS.payment.charAt(0).toUpperCase()}${TERMS.payment.slice(1)}.`,
   },
+]
+
+const photoTips = [
+  "Fotografe com luz natural, sem flash",
+  "Mostre a peça inteira e depois os detalhes de perto",
+  "Inclua o interior, as alças, as ferragens e o solado",
+  "Se tiver, mostre a etiqueta ou o selo da marca",
 ]
 
 export default function AvaliacaoPage() {
@@ -99,134 +42,75 @@ export default function AvaliacaoPage() {
 
   return (
     <div ref={ref}>
-      {/* Hero */}
-      <section className="flex min-h-[50vh] items-end bg-primary px-6 pb-16 pt-32 lg:px-8">
-        <div className="mx-auto w-full max-w-7xl">
-          <p className="animate-on-scroll text-[10px] uppercase tracking-[0.4em] text-accent">
-            Avaliação
-          </p>
-          <h1 className="animate-on-scroll mt-4 font-serif text-4xl text-primary-foreground lg:text-6xl">
-            Avaliação & Preços
-          </h1>
-          <p className="animate-on-scroll mt-6 max-w-xl text-sm leading-relaxed text-primary-foreground/60">
-            {"Cada item é único. Os valores variam conforme o estado e a complexidade do serviço. Envie fotos para receber uma avaliação personalizada."}
+      <section className="relative flex min-h-[55vh] items-end overflow-hidden px-6 pb-16 pt-32 lg:px-10">
+        <div className="absolute inset-0">
+          <Image src="/images/oficio-lv-limpeza.jpg" alt="Avaliação de bolsa Louis Vuitton" fill className="object-cover" priority sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/45" />
+        </div>
+        <div className="relative z-10 mx-auto w-full max-w-[1400px]">
+          <p className="animate-on-scroll text-[10px] uppercase tracking-[0.4em] text-accent">Avaliação</p>
+          <h1 className="animate-on-scroll mt-4 font-serif text-4xl text-white lg:text-6xl">Avaliação pelo WhatsApp</h1>
+          <p className="animate-on-scroll mt-6 max-w-xl text-sm leading-relaxed text-white/60">
+            Cada peça é única. O valor depende do estado e do serviço, por isso o orçamento é feito a partir das fotos.
           </p>
         </div>
       </section>
 
-      {/* How to send */}
-      <section className="px-6 py-20 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl">
+      <section className="px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto max-w-[1400px]">
           <div className="animate-on-scroll mb-16 text-center">
-            <p className="text-[10px] uppercase tracking-[0.4em] text-accent">
-              Como enviar
-            </p>
-            <h2 className="mt-3 font-serif text-3xl text-foreground lg:text-5xl">
-              Envie Fotos Para Avaliação
-            </h2>
+            <p className="text-[10px] uppercase tracking-[0.4em] text-accent">Passo a passo</p>
+            <h2 className="mt-3 font-serif text-3xl text-foreground lg:text-5xl">Como pedir sua avaliação</h2>
           </div>
           <div className="stagger-children grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {uploadSteps.map((step, i) => (
-              <div
-                key={step.title}
-                className="group flex flex-col gap-4 border border-border/50 p-8 transition-all duration-500 hover:border-accent/30"
-              >
+            {steps.map((step, i) => (
+              <div key={step.title} className="group flex flex-col gap-4 border border-border/50 p-8 transition-all duration-500 hover:border-accent/30">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] tracking-[0.3em] text-accent">
-                    {`0${i + 1}`}
-                  </span>
+                  <span className="text-[10px] tracking-[0.3em] text-accent">{`0${i + 1}`}</span>
                   <step.icon className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-accent" />
                 </div>
-                <h3 className="font-serif text-lg text-foreground">
-                  {step.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {step.description}
-                </p>
+                <h3 className="font-serif text-lg text-foreground">{step.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
               </div>
             ))}
           </div>
           <div className="mt-12 flex justify-center">
             <Link
-              href={whatsappLink("Olá! Gostaria de enviar fotos para avaliação.")}
+              href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 bg-accent px-8 py-4 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"
+              className="inline-flex items-center gap-2 bg-accent px-8 py-4 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"
             >
-              <span>Enviar fotos via WhatsApp</span>
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              >
-                <path
-                  d="M1 7H13M13 7L7 1M13 7L7 13"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              Enviar fotos pelo WhatsApp
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="bg-card px-6 py-20 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="animate-on-scroll mb-16">
-            <p className="text-[10px] uppercase tracking-[0.4em] text-accent">
-              Valores
-            </p>
-            <h2 className="mt-3 font-serif text-3xl text-foreground lg:text-5xl">
-              Tabela de Referência
-            </h2>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              {"Valores iniciais de referência. O orçamento final depende da análise do item. Todos os serviços incluem controle de qualidade e garantia."}
-            </p>
+      <section className="bg-card/40 px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-2 lg:gap-20">
+          <div className="animate-on-scroll flex flex-col gap-4">
+            <p className="text-[10px] uppercase tracking-[0.4em] text-accent">Dicas</p>
+            <h2 className="font-serif text-3xl text-foreground lg:text-4xl">Fotos que ajudam no orçamento</h2>
+            <ul className="mt-2 flex flex-col gap-3">
+              {photoTips.map((tip) => (
+                <li key={tip} className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  {tip}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="stagger-children grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {pricingTiers.map((tier) => (
-              <div
-                key={tier.service}
-                className="group flex flex-col gap-4 border border-border/50 p-8 transition-all duration-500 hover:border-accent/30"
-              >
-                <h3 className="font-serif text-xl text-foreground">
-                  {tier.service}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {tier.description}
-                </p>
-                <p className="font-serif text-2xl text-accent">
-                  <span className="text-xs text-muted-foreground font-sans">
-                    a partir de{" "}
-                  </span>
-                  {tier.startingFrom}
-                </p>
-                <ul className="flex flex-col gap-2 border-t border-border/50 pt-4">
-                  {tier.includes.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm text-muted-foreground"
-                    >
-                      <div className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={whatsappLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto pt-2 text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-accent"
-                >
-                  Solicitar orçamento
-                </Link>
-              </div>
-            ))}
+          <div className="animate-on-scroll grid gap-4 self-start sm:grid-cols-2">
+            <div className="border border-border/50 bg-background p-6">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-accent">Prazo médio</p>
+              <p className="mt-2 font-serif text-2xl text-foreground">{TERMS.turnaround}</p>
+            </div>
+            <div className="border border-border/50 bg-background p-6">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-accent">Pagamento</p>
+              <p className="mt-2 font-serif text-2xl text-foreground">40% de entrada</p>
+              <p className="mt-1 text-xs text-muted-foreground">Restante na retirada da peça.</p>
+            </div>
           </div>
         </div>
       </section>

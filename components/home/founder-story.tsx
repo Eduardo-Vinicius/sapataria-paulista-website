@@ -4,6 +4,44 @@ import Image from "next/image"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { whatsappLink } from "@/lib/contact"
+import { FACTS } from "@/lib/content/site-facts"
+
+export function FounderTeaser() {
+  const ref = useScrollAnimation()
+
+  return (
+    <section ref={ref} className="px-6 py-24 lg:px-10 lg:py-32">
+      <div className="mx-auto grid max-w-[1400px] items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <div className="reveal-scale relative mx-auto aspect-[4/5] w-full max-w-[520px] overflow-hidden">
+          <Image
+            src="/images/thiago-147.jpg"
+            alt="Thiago Landes, fundador da Sapataria Paulista, engraxando na Avenida Paulista"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 520px"
+          />
+        </div>
+        <div className="reveal flex flex-col gap-6">
+          <p className="text-[10px] uppercase tracking-[0.45em] text-accent">O Fundador</p>
+          <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl lg:text-6xl">Thiago Landes</h2>
+          <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Aos 13 anos engraxava sapatos na Avenida Paulista. Depois de treinamentos em Milão e anos de bancada,
+            hoje comanda o atelier da Sapataria Paulista na Galeria 2001, com uma equipe de mais de{" "}
+            {FACTS.teamSize} artesãos.
+          </p>
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <Link
+              href="/sobre"
+              className="inline-flex items-center gap-2 bg-accent px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"
+            >
+              Conhecer a trajetória
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 const masteryShots = [
   {
@@ -52,13 +90,13 @@ export function FounderStory() {
                 Da Paulista ao atelier
               </p>
               <p className="mt-3 font-serif text-xl leading-snug text-white md:text-2xl lg:text-3xl">
-                {"Mais de duas décadas de experiência com couro, solados e acabamentos."}
+                {`Mais de ${FACTS.yearsOfCraft} anos de experiência com couro, solados e acabamentos.`}
               </p>
             </div>
             <div className="grid grid-cols-3 gap-2 sm:gap-3">
               {[
-                { label: "Anos de ofício", value: "24+" },
-                { label: "Equipe", value: "20+" },
+                { label: "Anos de ofício", value: `${FACTS.yearsOfCraft}+` },
+                { label: "Artesãos", value: `${FACTS.teamSize}+` },
                 { label: "Sede", value: "Galeria 2001" },
               ].map((stat) => (
                 <div
@@ -96,12 +134,6 @@ export function FounderStory() {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Link
-                href="/sobre"
-                className="inline-flex items-center gap-2 border border-accent/40 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-accent transition-all duration-300 hover:bg-accent/10"
-              >
-                Trajetória completa
-              </Link>
               <Link
                 href={whatsappLink()}
                 target="_blank"

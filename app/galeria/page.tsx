@@ -3,121 +3,33 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { X } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { ComparisonSlider } from "@/components/comparison-slider"
-import { X } from "lucide-react"
 import { whatsappLink } from "@/lib/contact"
+import { CASES, type BeforeAfterCase } from "@/lib/content/cases"
+import { GALLERY_CATEGORIES, GALLERY_PHOTOS, type GalleryCategory, type GalleryPhoto } from "@/lib/content/gallery"
 
-const categories = ["Todos", "Tênis", "Sapatos", "Couro", "Bolsas", "Atelier"] as const
-type Category = (typeof categories)[number]
+type Filter = "Todos" | GalleryCategory
 
-const galleryItems = [
-  {
-    id: 1,
-    before: "/images/antes-sneaker.png",
-    after: "/images/depois-sneaker.png",
-    title: "Tênis Premium",
-    category: "Tênis" as Category,
-    work: "Limpeza profunda, restauração de solado e acabamento.",
-    timeframe: "7 dias úteis",
-    type: "before-after" as const,
-  },
-  {
-    id: 2,
-    before: "/images/antes-bolsa.png",
-    after: "/images/depois-bolsa.png",
-    title: "Bolsa de Couro",
-    category: "Bolsas" as Category,
-    work: "Hidratação, restauração de cor e polimento de ferragens.",
-    timeframe: "10 dias úteis",
-    type: "before-after" as const,
-  },
-  {
-    id: 3,
-    before: "/images/antes-sapato.png",
-    after: "/images/depois-sapato.png",
-    title: "Sapato Social",
-    category: "Sapatos" as Category,
-    work: "Polimento, solado e tingimento artesanal.",
-    timeframe: "8 dias úteis",
-    type: "before-after" as const,
-  },
-]
-
-const craftItems = [
-  {
-    id: 10,
-    src: "/images/thiago-147.jpg",
-    title: "Thiago Landes",
-    category: "Atelier" as Category,
-    caption: "O fundador em ação, onde tudo começou: na Avenida Paulista.",
-  },
-  {
-    id: 11,
-    src: "/images/thiago-65.jpg",
-    title: "Bolsa Louis Vuitton",
-    category: "Bolsas" as Category,
-    caption: "Restauração de grife na bancada do atelier.",
-  },
-  {
-    id: 12,
-    src: "/images/oficio-chanel.jpg",
-    title: "Chanel — pintura & revitalização",
-    category: "Bolsas" as Category,
-    caption: "Pigmentos profissionais sobre couro quilted.",
-  },
-  {
-    id: 13,
-    src: "/images/oficio-tenis.jpg",
-    title: "Costura de tênis",
-    category: "Tênis" as Category,
-    caption: "Maquina industrial e mão firme no detalhe.",
-  },
-  {
-    id: 14,
-    src: "/images/oficio-sapato.jpg",
-    title: "Acabamento de solado",
-    category: "Sapatos" as Category,
-    caption: "Loafer de grife sob tratamento artesanal.",
-  },
-  {
-    id: 15,
-    src: "/images/oficio-lv-interior.jpg",
-    title: "Interior Louis Vuitton",
-    category: "Couro" as Category,
-    caption: "Precisão em ferragens e forro.",
-  },
-  {
-    id: 16,
-    src: "/images/atelier-bancada.jpg",
-    title: "Bancada do atelier",
-    category: "Atelier" as Category,
-    caption: "Nosso atelier na Galeria 2001.",
-  },
-  {
-    id: 17,
-    src: "/images/oficio-bolsa-costura.jpg",
-    title: "Costura em bolsa",
-    category: "Bolsas" as Category,
-    caption: "Costura feita à mão, ponto a ponto.",
-  },
+const filters: Filter[] = [
+  "Todos",
+  ...GALLERY_CATEGORIES.filter(
+    (category) =>
+      GALLERY_PHOTOS.some((photo) => photo.category === category) ||
+      CASES.some((item) => item.category === category),
+  ),
 ]
 
 export default function GaleriaPage() {
   const ref = useScrollAnimation()
-  const [activeFilter, setActiveFilter] = useState<Category>("Todos")
-  const [selectedItem, setSelectedItem] = useState<(typeof galleryItems)[0] | null>(null)
-  const [selectedCraft, setSelectedCraft] = useState<(typeof craftItems)[0] | null>(null)
+  const [activeFilter, setActiveFilter] = useState<Filter>("Todos")
+  const [selectedCase, setSelectedCase] = useState<BeforeAfterCase | null>(null)
+  const [selectedPhoto, setSelectedPhoto] = useState<GalleryPhoto | null>(null)
 
-  const filteredBeforeAfter =
-    activeFilter === "Todos" || activeFilter === "Atelier"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === activeFilter)
-
-  const filteredCraft =
-    activeFilter === "Todos"
-      ? craftItems
-      : craftItems.filter((item) => item.category === activeFilter)
+  const cases = activeFilter === "Todos" ? CASES : CASES.filter((item) => item.category === activeFilter)
+  const photos =
+    activeFilter === "Todos" ? GALLERY_PHOTOS : GALLERY_PHOTOS.filter((photo) => photo.category === activeFilter)
 
   return (
     <div ref={ref}>
@@ -125,7 +37,7 @@ export default function GaleriaPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/oficio-chanel-2.jpg"
-            alt="Restauração Chanel no atelier"
+            alt="Pintura de bolsa Chanel no atelier"
             fill
             className="object-cover"
             priority
@@ -134,66 +46,89 @@ export default function GaleriaPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/40" />
         </div>
         <div className="relative z-10 mx-auto w-full max-w-[1400px]">
-          <p className="animate-on-scroll text-[10px] uppercase tracking-ultra-wide text-accent">
-            Galeria
-          </p>
-          <h1 className="animate-on-scroll mt-6 font-serif text-4xl text-white lg:text-7xl">
-            Nosso trabalho
-          </h1>
+          <p className="animate-on-scroll text-[10px] uppercase tracking-ultra-wide text-accent">Galeria</p>
+          <h1 className="animate-on-scroll mt-6 font-serif text-4xl text-white lg:text-7xl">Nosso trabalho</h1>
           <p className="animate-on-scroll mt-6 max-w-lg text-sm leading-relaxed text-white/55">
-            Antes e depois, detalhes do atelier e o trabalho de Thiago Landes e
-            da equipe Sapataria Paulista.
+            Antes e depois e o dia a dia do atelier, com a marca e o serviço de cada peça.
           </p>
         </div>
       </section>
 
       <section className="border-b border-border/20 px-6 py-6 lg:px-10">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-3">
-          {categories.map((cat) => (
+          {filters.map((filter) => (
             <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
               className={`px-4 py-2 text-xs uppercase tracking-[0.15em] transition-all duration-300 ${
-                activeFilter === cat
+                activeFilter === filter
                   ? "border border-accent bg-accent text-accent-foreground"
                   : "border border-border text-muted-foreground hover:border-accent/50 hover:text-foreground"
               }`}
             >
-              {cat}
+              {filter}
             </button>
           ))}
         </div>
       </section>
 
-      {filteredCraft.length > 0 && (
+      {cases.length > 0 && (
         <section className="px-6 pt-20 lg:px-10 lg:pt-28">
           <div className="mx-auto max-w-[1400px]">
             <div className="animate-on-scroll mb-10">
+              <p className="text-[10px] uppercase tracking-[0.4em] text-accent">Resultados</p>
+              <h2 className="mt-3 font-serif text-3xl text-foreground lg:text-4xl">Antes & Depois</h2>
+            </div>
+            <div className="stagger-children grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {cases.map((item) => (
+                <button
+                  key={item.before}
+                  onClick={() => setSelectedCase(item)}
+                  className="group flex flex-col gap-4 border border-border/40 text-left transition-all duration-500 hover:border-accent/30"
+                >
+                  <ComparisonSlider
+                    beforeImage={item.before}
+                    afterImage={item.after}
+                    beforeAlt={`${item.title} antes: ${item.service}`}
+                    afterAlt={`${item.title} depois: ${item.service}`}
+                  />
+                  <div className="flex flex-col gap-1 px-5 pb-5">
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-accent">{item.category}</span>
+                    <h3 className="font-serif text-lg text-foreground">{item.title}</h3>
+                    <p className="text-xs text-muted-foreground">{item.service}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {photos.length > 0 && (
+        <section className="px-6 py-20 lg:px-10 lg:py-28">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="animate-on-scroll mb-10">
               <p className="text-[10px] uppercase tracking-[0.4em] text-accent">Atelier</p>
-              <h2 className="mt-3 font-serif text-3xl text-foreground lg:text-4xl">
-                Por dentro do atelier
-              </h2>
+              <h2 className="mt-3 font-serif text-3xl text-foreground lg:text-4xl">Por dentro do atelier</h2>
             </div>
             <div className="stagger-children grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {filteredCraft.map((item) => (
+              {photos.map((photo) => (
                 <button
-                  key={item.id}
-                  onClick={() => setSelectedCraft(item)}
+                  key={photo.src}
+                  onClick={() => setSelectedPhoto(photo)}
                   className="group relative aspect-[3/4] overflow-hidden text-left"
                 >
                   <Image
-                    src={item.src}
-                    alt={item.title}
+                    src={photo.src}
+                    alt={`${photo.title}. ${photo.caption}`}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-5">
-                    <span className="text-[9px] uppercase tracking-[0.2em] text-accent">
-                      {item.category}
-                    </span>
-                    <h3 className="mt-1 font-serif text-lg text-white">{item.title}</h3>
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-accent">{photo.category}</span>
+                    <h3 className="mt-1 font-serif text-lg text-white">{photo.title}</h3>
                   </div>
                 </button>
               ))}
@@ -202,75 +137,37 @@ export default function GaleriaPage() {
         </section>
       )}
 
-      {filteredBeforeAfter.length > 0 && activeFilter !== "Atelier" && (
-        <section className="px-6 py-24 lg:px-10 lg:py-36">
-          <div className="mx-auto max-w-[1400px]">
-            <div className="animate-on-scroll mb-10">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-accent">Resultados</p>
-              <h2 className="mt-3 font-serif text-3xl text-foreground lg:text-4xl">
-                Antes & Depois
-              </h2>
-            </div>
-            <div className="stagger-children grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {filteredBeforeAfter.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => setSelectedItem(item)}
-                  className="group flex flex-col gap-4 border border-border/40 text-left transition-all duration-500 hover:border-accent/30"
-                >
-                  <ComparisonSlider
-                    beforeImage={item.before}
-                    afterImage={item.after}
-                    beforeAlt={`${item.title} antes`}
-                    afterAlt={`${item.title} depois`}
-                  />
-                  <div className="flex flex-col gap-1 px-5 pb-5">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-accent">
-                      {item.category}
-                    </span>
-                    <h3 className="font-serif text-lg text-foreground">{item.title}</h3>
-                    <p className="text-xs text-muted-foreground">{item.timeframe}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {selectedItem && (
+      {selectedCase && (
         <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-primary/80 p-4 backdrop-blur-sm"
-          onClick={() => setSelectedItem(null)}
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+          onClick={() => setSelectedCase(null)}
           role="dialog"
           aria-modal="true"
-          aria-label={`Detalhes de ${selectedItem.title}`}
+          aria-label={`Detalhes de ${selectedCase.title}`}
         >
           <div
             className="relative w-full max-w-3xl border border-border/50 bg-background"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => setSelectedItem(null)}
-              className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center border border-border text-muted-foreground transition-all hover:border-accent hover:text-accent"
+              onClick={() => setSelectedCase(null)}
+              className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center border border-border bg-background/80 text-muted-foreground transition-all hover:border-accent hover:text-accent"
               aria-label="Fechar"
             >
               <X className="h-4 w-4" />
             </button>
             <ComparisonSlider
-              beforeImage={selectedItem.before}
-              afterImage={selectedItem.after}
-              beforeAlt={`${selectedItem.title} antes`}
-              afterAlt={`${selectedItem.title} depois`}
+              beforeImage={selectedCase.before}
+              afterImage={selectedCase.after}
+              beforeAlt={`${selectedCase.title} antes`}
+              afterAlt={`${selectedCase.title} depois`}
             />
             <div className="flex flex-col gap-3 p-6">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-accent">
-                {selectedItem.category}
-              </span>
-              <h3 className="font-serif text-2xl text-foreground">{selectedItem.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{selectedItem.work}</p>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-accent">{selectedCase.category}</span>
+              <h3 className="font-serif text-2xl text-foreground">{selectedCase.title}</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">{selectedCase.service}</p>
               <Link
-                href={whatsappLink("Olá! Vi um caso parecido na galeria e gostaria de enviar fotos.")}
+                href={whatsappLink("Olá! Vi um caso parecido na galeria e gostaria de enviar fotos da minha peça.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-2 self-start bg-accent px-6 py-3 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"
@@ -282,20 +179,20 @@ export default function GaleriaPage() {
         </div>
       )}
 
-      {selectedCraft && (
+      {selectedPhoto && (
         <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-primary/85 p-4 backdrop-blur-sm"
-          onClick={() => setSelectedCraft(null)}
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+          onClick={() => setSelectedPhoto(null)}
           role="dialog"
           aria-modal="true"
-          aria-label={selectedCraft.title}
+          aria-label={selectedPhoto.title}
         >
           <div
             className="relative w-full max-w-2xl overflow-hidden border border-border/50 bg-background"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => setSelectedCraft(null)}
+              onClick={() => setSelectedPhoto(null)}
               className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center border border-border bg-background/80 text-muted-foreground backdrop-blur hover:border-accent hover:text-accent"
               aria-label="Fechar"
             >
@@ -303,19 +200,17 @@ export default function GaleriaPage() {
             </button>
             <div className="relative aspect-[3/4] w-full sm:aspect-[4/5]">
               <Image
-                src={selectedCraft.src}
-                alt={selectedCraft.title}
+                src={selectedPhoto.src}
+                alt={`${selectedPhoto.title}. ${selectedPhoto.caption}`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 640px"
               />
             </div>
             <div className="flex flex-col gap-2 p-6">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-accent">
-                {selectedCraft.category}
-              </span>
-              <h3 className="font-serif text-2xl text-foreground">{selectedCraft.title}</h3>
-              <p className="text-sm text-muted-foreground">{selectedCraft.caption}</p>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-accent">{selectedPhoto.category}</span>
+              <h3 className="font-serif text-2xl text-foreground">{selectedPhoto.title}</h3>
+              <p className="text-sm text-muted-foreground">{selectedPhoto.caption}</p>
             </div>
           </div>
         </div>

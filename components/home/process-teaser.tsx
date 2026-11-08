@@ -3,33 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-
-const steps = [
-  {
-    number: "01",
-    title: "Envie fotos",
-    description: "Diagnóstico inicial pelo WhatsApp com base no estado real da peça.",
-    image: "/images/oficio-lv-detalhe.jpg",
-  },
-  {
-    number: "02",
-    title: "Diagnóstico",
-    description: "Análise de materiais, desgaste e plano de restauração sob medida.",
-    image: "/images/oficio-bancada.jpg",
-  },
-  {
-    number: "03",
-    title: "Execução",
-    description: "Ofício manual com tintas, costura e acabamentos premium.",
-    image: "/images/oficio-chanel.jpg",
-  },
-  {
-    number: "04",
-    title: "Entrega",
-    description: "Controle de qualidade rigoroso. Sua peça, restaurada.",
-    image: "/images/oficio-costura.jpg",
-  },
-]
+import { PROCESS_STEPS } from "@/lib/content/process"
 
 export function ProcessTeaser() {
   const ref = useScrollAnimation()
@@ -41,30 +15,49 @@ export function ProcessTeaser() {
           <div>
             <p className="text-[10px] uppercase tracking-ultra-wide text-accent">Processo</p>
             <h2 className="mt-3 max-w-lg font-serif text-3xl text-foreground lg:text-5xl text-balance">
-              Do diagnóstico ao acabamento
+              Como funciona
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Transparência em cada etapa — a mesma disciplina que Thiago aprendeu
-            na Paulista, elevada ao padrão de atelier.
+            Quatro passos, do primeiro contato pelo WhatsApp até a retirada da peça pronta.
           </p>
         </div>
 
         <div className="stagger grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step) => (
-            <div key={step.number} className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden lg:min-h-[420px]">
-              <Image
-                src={step.image}
-                alt={step.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 640px) 100vw, 25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/10" />
+          {PROCESS_STEPS.map((step) => (
+            <div
+              key={step.number}
+              className={`group relative flex min-h-[320px] flex-col justify-end overflow-hidden lg:min-h-[420px] ${
+                step.image ? "" : "border border-border/50 bg-background"
+              }`}
+            >
+              {step.image && (
+                <>
+                  <Image
+                    src={step.image.src}
+                    alt={step.image.alt}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
+                </>
+              )}
+              {!step.image && (
+                <span className="absolute right-6 top-4 font-serif text-7xl text-accent/15">{step.number}</span>
+              )}
               <div className="relative z-10 flex flex-col gap-2 p-6">
                 <span className="text-[10px] tracking-[0.3em] text-accent">{step.number}</span>
-                <h3 className="font-serif text-xl text-white">{step.title}</h3>
-                <p className="text-xs leading-relaxed text-white/60">{step.description}</p>
+                <h3 className={`font-serif text-xl ${step.image ? "text-white" : "text-foreground"}`}>{step.title}</h3>
+                <p className={`text-xs leading-relaxed ${step.image ? "text-white/70" : "text-muted-foreground"}`}>
+                  {step.description}
+                </p>
+                <p className={`mt-2 border-t pt-3 text-xs leading-relaxed ${
+                  step.image ? "border-white/15 text-white/85" : "border-border/50 text-foreground/85"
+                }`}>
+                  <span className="text-accent">Você recebe: </span>
+                  {step.youReceive}
+                </p>
               </div>
             </div>
           ))}
@@ -83,13 +76,7 @@ export function ProcessTeaser() {
               fill="none"
               className="transition-transform duration-500 group-hover:translate-x-1"
             >
-              <path
-                d="M1 7H13M13 7L7 1M13 7L7 13"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>
         </div>

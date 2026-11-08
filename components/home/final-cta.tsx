@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { whatsappLink } from "@/lib/contact"
+import { HASHTAG } from "@/lib/content/site-facts"
 
 export function FinalCta() {
   const ref = useScrollAnimation()
@@ -24,20 +25,19 @@ export function FinalCta() {
       <div className="reveal relative z-10 flex flex-col items-center gap-7 px-6 text-center">
         <p className="text-[10px] uppercase tracking-ultra-wide text-accent">Comece agora</p>
         <h2 className="max-w-3xl font-serif text-3xl leading-tight text-white lg:text-6xl">
-          Envie fotos. Receba uma avaliação de quem entende do assunto.
+          Envie fotos. Receba uma avaliação.
         </h2>
-        <p className="max-w-md text-sm leading-relaxed text-white/45">
-          Thiago e a equipe analisam sua peça e retornam com um plano claro —
-          materiais, prazo e acabamento no padrão Sapataria Paulista.
+        <p className="max-w-md text-sm leading-relaxed text-white/55">
+          Thiago e a equipe analisam sua peça e retornam com orçamento e prazo.
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row">
           <Link
-            href={whatsappLink("Olá! Gostaria de enviar fotos para avaliação.")}
+            href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 bg-accent px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-accent-foreground transition-all duration-500 hover:bg-accent/90"
           >
-            <span>WhatsApp</span>
+            <span>Enviar fotos pelo WhatsApp</span>
             <svg
               width="14"
               height="14"
@@ -61,6 +61,7 @@ export function FinalCta() {
             Como funciona
           </Link>
         </div>
+        <p className="pt-4 font-serif text-lg italic text-accent">{HASHTAG}</p>
       </div>
     </section>
   )

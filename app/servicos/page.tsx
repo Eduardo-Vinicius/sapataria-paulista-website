@@ -2,185 +2,77 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { CalendarClock, CreditCard } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { useState } from "react"
-import { ChevronDown } from "lucide-react"
 import { whatsappLink } from "@/lib/contact"
+import { SERVICES, type Service } from "@/lib/content/services"
+import { TERMS } from "@/lib/content/site-facts"
 
-const services = [
-  {
-    category: "Limpeza & Higienização Premium",
-    image: "/images/oficio-lv-limpeza.jpg",
-    description:
-      "Limpeza profunda que remove manchas e odores sem comprometer a integridade — de bolsas Louis Vuitton a tênis de coleção. Produtos importados e trabalho feito à mão.",
-    details: [
-      "Limpeza profunda de tecidos, camurça, nubuck e couro",
-      "Remoção de manchas dificeis e encardidos",
-      "Desodorização e higienização antibacteriana",
-      "Proteção pos-limpeza com impermeabilizante premium",
-    ],
-    turnaround: "3 a 5 dias úteis",
-  },
-  {
-    category: "Restauração Estrutural",
-    image: "/images/oficio-tenis.jpg",
-    description:
-      "Reconstrução de entressolas, costuras, palmilhas e estruturas internas. Devolvemos forma e funcionalidade com costura industrial e acabamento artesanal.",
-    details: [
-      "Reparo de entressolas e midsoles",
-      "Recostura e reforco de costuras",
-      "Restauração de palmilhas e forros internos",
-      "Reforco estrutural e recondicionamento",
-    ],
-    turnaround: "5 a 10 dias úteis",
-  },
-  {
-    category: "Troca & Ajuste de Solado",
-    image: "/images/oficio-sapato.jpg",
-    description:
-      "Substituição e nívelamento de solados desgastados em sapatos sociais e de grife. Materiais de alta durabilidade com acabamento impecável.",
-    details: [
-      "Troca completa de solado",
-      "Aplicação de borracha protetora",
-      "Ajuste de salto e nívelamento",
-      "Acabamento e colagem industrial",
-    ],
-    turnaround: "7 a 14 dias úteis",
-  },
-  {
-    category: "Pintura & Revitalização",
-    image: "/images/oficio-chanel.jpg",
-    description:
-      "Restauração de cor e acabamento com tintas e pigmentos profissionais — de Chanel a peças customizadas. Efeitos sob medida para cada material.",
-    details: [
-      "Tingimento de couro e sintéticos",
-      "Restauração de cor original",
-      "Customização de cores sob encomenda",
-      "Acabamento acetinado, fosco ou brilhante",
-    ],
-    turnaround: "5 a 10 dias úteis",
-  },
-  {
-    category: "Couro & Acabamentos",
-    image: "/images/oficio-lv-interior.jpg",
-    description:
-      "Tratamento especializado para bolsas, carteiras e acessórios de grife. Restauração que respeita o material e a identidade da peça.",
-    details: [
-      "Hidratação e nutrição de couro",
-      "Reparo de arranhoes e descascados",
-      "Restauração de ferragens e zippers",
-      "Tratamento de bordas e acabamentos",
-    ],
-    turnaround: "5 a 12 dias úteis",
-  },
-]
-
-function ServiceCard({
-  service,
-  index,
-}: {
-  service: (typeof services)[0]
-  index: number
-}) {
-  const [expanded, setExpanded] = useState(false)
-
+function ArrowIcon() {
   return (
-    <div className="animate-on-scroll flex flex-col overflow-hidden border border-border/50 transition-all duration-500 hover:border-accent/30 lg:flex-row">
-      <div className="relative aspect-[3/2] lg:aspect-auto lg:w-2/5">
-        <Image
-          src={service.image}
-          alt={service.category}
-          fill
-          className="object-cover"
-          sizes="(max-width: 1024px) 100vw, 40vw"
-        />
-        <div className="absolute inset-0 bg-primary/10" />
-        <span className="absolute left-4 top-4 bg-background/70 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-foreground backdrop-blur-sm">
-          {`0${index + 1}`}
-        </span>
-      </div>
-      <div className="flex flex-1 flex-col gap-4 p-6 lg:p-8">
-        <h3 className="font-serif text-2xl text-foreground">
-          {service.category}
-        </h3>
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          {service.description}
-        </p>
-
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-accent transition-colors hover:text-foreground"
-          aria-expanded={expanded}
-        >
-          <span>{expanded ? "Menos detalhes" : "Ver detalhes"}</span>
-          <ChevronDown
-            className={`h-3 w-3 transition-transform duration-300 ${
-              expanded ? "rotate-180" : ""
-            }`}
-          />
-        </button>
-
-        <div
-          className={`overflow-hidden transition-all duration-500 ${
-            expanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          <ul className="flex flex-col gap-2 pb-4">
-            {service.details.map((detail) => (
-              <li
-                key={detail}
-                className="flex items-start gap-3 text-sm text-muted-foreground"
-              >
-                <div className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                {detail}
-              </li>
-            ))}
-          </ul>
-          <p className="text-xs text-muted-foreground">
-            <span className="text-accent">Prazo estimado:</span>{" "}
-            {service.turnaround}
-          </p>
-        </div>
-
-        <Link
-          href={whatsappLink("Olá! Gostaria de avaliar meu item.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group mt-auto inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <span>Quero avaliar meu item</span>
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 14 14"
-            fill="none"
-            className="transition-transform duration-300 group-hover:translate-x-1"
-          >
-            <path
-              d="M1 7H13M13 7L7 1M13 7L7 13"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </Link>
-      </div>
-    </div>
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+      <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   )
 }
 
-export default function ServiçosPage() {
+function ServiceSection({ service, index }: { service: Service; index: number }) {
+  const reversed = index % 2 === 1
+
+  return (
+    <article
+      id={service.slug}
+      className={`animate-on-scroll scroll-mt-28 grid gap-8 border-t border-border/40 pt-12 lg:gap-16 ${
+        service.image ? "lg:grid-cols-2 lg:items-center" : ""
+      }`}
+    >
+      {service.image && (
+        <div className={`relative aspect-[4/3] w-full overflow-hidden ${reversed ? "lg:order-2" : ""}`}>
+          <Image
+            src={service.image.src}
+            alt={service.image.alt}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
+      )}
+      <div className={`flex flex-col gap-5 ${service.image ? "" : "lg:max-w-3xl"}`}>
+        <span className="text-[10px] tracking-[0.3em] text-accent">{String(index + 1).padStart(2, "0")}</span>
+        <h2 className="font-serif text-3xl text-foreground lg:text-4xl">{service.title}</h2>
+        <p className="text-sm leading-relaxed text-muted-foreground md:text-[15px]">{service.description}</p>
+        <ul className="flex flex-col gap-2">
+          {service.details.map((detail) => (
+            <li key={detail} className="flex items-start gap-3 text-sm text-muted-foreground">
+              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+              {detail}
+            </li>
+          ))}
+        </ul>
+        <Link
+          href={whatsappLink(`Olá! Gostaria de um orçamento de ${service.title.toLowerCase()}. Vou enviar fotos da peça.`)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mt-2 inline-flex items-center gap-2 self-start bg-accent px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-accent-foreground transition-colors hover:bg-accent/90"
+        >
+          <span>Pedir orçamento pelo WhatsApp</span>
+          <ArrowIcon />
+        </Link>
+      </div>
+    </article>
+  )
+}
+
+export default function ServicosPage() {
   const ref = useScrollAnimation()
 
   return (
     <div ref={ref}>
-      {/* Hero */}
       <section className="relative flex min-h-[65vh] items-end overflow-hidden px-6 pb-20 pt-36 lg:px-10">
         <div className="absolute inset-0">
           <Image
-            src="/images/oficio-chanel.jpg"
-            alt="Restauração artesanal de bolsa Chanel"
+            src="/images/oficio-tenis.jpg"
+            alt="Recostura de tênis na máquina industrial do atelier"
             fill
             className="object-cover"
             priority
@@ -189,167 +81,73 @@ export default function ServiçosPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/45" />
         </div>
         <div className="relative z-10 mx-auto w-full max-w-[1400px]">
-          <p className="animate-on-scroll text-[10px] uppercase tracking-ultra-wide text-accent">
-            Serviços
-          </p>
-          <h1 className="animate-on-scroll mt-6 font-serif text-4xl text-white lg:text-7xl">
-            O que restauramos
-          </h1>
-          <p className="animate-on-scroll mt-6 max-w-lg text-sm leading-relaxed text-white/55">
-            Tênis, sapatos, bolsas e acessórios de grife, restaurados por
-            Thiago Landes e pela equipe da Sapataria Paulista.
+          <p className="animate-on-scroll text-[10px] uppercase tracking-ultra-wide text-accent">Serviços</p>
+          <h1 className="animate-on-scroll mt-6 font-serif text-4xl text-white lg:text-7xl">O que fazemos</h1>
+          <p className="animate-on-scroll mt-6 max-w-lg text-sm leading-relaxed text-white/60">
+            Bolsas, sapatos, tênis e malas restaurados por Thiago Landes e pela equipe da Sapataria Paulista.
           </p>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="px-6 py-24 lg:px-10 lg:py-36">
-        <div className="mx-auto max-w-[1400px]">
-          {/* Space showcase */}
-          <div className="animate-on-scroll mb-24 flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
-            <div className="relative aspect-[4/3] w-full overflow-hidden lg:w-1/2">
-              <Image
-                src="/images/atelier-bancada.jpg"
-                alt="Bancada do atelier Sapataria Paulista"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            <div className="flex flex-1 flex-col gap-6">
-              <p className="text-[10px] uppercase tracking-[0.45em] text-accent">
-                Nosso Espaço
-              </p>
-              <h2 className="font-serif text-3xl text-foreground lg:text-4xl">
-                Atelier na Galeria 2001
-              </h2>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                Na Avenida Paulista, o atelier reúne bancadas de restauração,
-                costura e limpeza premium. Cada projeto é acompanhado de perto
-                por Thiago Landes.
-              </p>
-              <Link
-                href={whatsappLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-accent transition-colors hover:text-foreground"
-              >
-                <span>Conhecer o atelier</span>
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                >
-                  <path
-                    d="M1 7H13M13 7L7 1M13 7L7 13"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
+      <section className="border-b border-border/20 px-6 py-6 lg:px-10">
+        <nav aria-label="Serviços" className="mx-auto flex max-w-[1400px] flex-wrap gap-2">
+          {SERVICES.map((service) => (
+            <a
+              key={service.slug}
+              href={`#${service.slug}`}
+              className="border border-border px-3 py-2 text-[11px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:border-accent/50 hover:text-foreground"
+            >
+              {service.title}
+            </a>
+          ))}
+        </nav>
+      </section>
+
+      <section className="px-6 pt-16 lg:px-10 lg:pt-20">
+        <div className="mx-auto grid max-w-[1400px] gap-4 md:grid-cols-2">
+          <div className="flex gap-4 border border-border/50 bg-card/40 p-6">
+            <CalendarClock className="h-5 w-5 shrink-0 text-accent" />
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-accent">Prazo médio</p>
+              <p className="mt-2 font-serif text-xl text-foreground">{TERMS.turnaround}</p>
+              <p className="mt-1 text-xs text-muted-foreground">O prazo exato de cada peça vem no orçamento.</p>
             </div>
           </div>
-
-          {/* Especialidades showcase */}
-          <div className="animate-on-scroll mb-24">
-            <div className="mb-16 text-center">
-              <p className="text-[10px] uppercase tracking-[0.45em] text-accent">
-                Especialidades
-              </p>
-              <h2 className="mt-4 font-serif text-3xl text-foreground lg:text-5xl">
-                O que nos diferencia
-              </h2>
-              <p className="mt-4 mx-auto max-w-lg text-sm leading-relaxed text-muted-foreground">
-                Cada especialidade desenvolvida com mastery e dedicação
-              </p>
-            </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {[
-                {
-                  title: "Tênis de Luxo",
-                  image: "/images/oficio-tenis.jpg",
-                },
-                {
-                  title: "Sapatos & Couro",
-                  image: "/images/oficio-sapato.jpg",
-                },
-                {
-                  title: "Bolsas & Acessórios",
-                  image: "/images/oficio-chanel-2.jpg",
-                },
-                {
-                  title: "Higienização",
-                  image: "/images/oficio-lv-detalhe.jpg",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="group relative flex flex-col overflow-hidden"
-                >
-                  <div className="relative aspect-square overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                    />
-                  </div>
-                  <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-end p-6">
-                    <h3 className="font-serif text-lg md:text-xl text-white text-center drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:translate-y-[-4px]">
-                      {item.title}
-                    </h3>
-                  </div>
-                </div>
-              ))}
+          <div className="flex gap-4 border border-border/50 bg-card/40 p-6">
+            <CreditCard className="h-5 w-5 shrink-0 text-accent" />
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-accent">Pagamento</p>
+              <p className="mt-2 font-serif text-xl text-foreground">40% de entrada</p>
+              <p className="mt-1 text-xs text-muted-foreground">{TERMS.payment}.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Details */}
-      <section className="px-6 lg:px-10 lg:py-36">
-        <div className="mx-auto flex max-w-[1400px] flex-col gap-8">
-          {services.map((service, i) => (
-            <ServiceCard key={service.category} service={service} index={i} />
+      <section className="px-6 py-16 lg:px-10 lg:py-24">
+        <div className="mx-auto flex max-w-[1400px] flex-col gap-16">
+          {SERVICES.map((service, index) => (
+            <ServiceSection key={service.slug} service={service} index={index} />
           ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-primary px-6 py-24 lg:px-10 lg:py-36">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-8 text-center">
-          <p className="animate-on-scroll text-[10px] uppercase tracking-ultra-wide text-accent">
-            Proximo passo
-          </p>
-          <h2 className="animate-on-scroll max-w-2xl font-serif text-3xl text-primary-foreground lg:text-6xl">
-            {"Envie fotos do seu item e receba uma avaliação em minutos."}
-          </h2>
+      <section className="relative overflow-hidden px-6 py-24 lg:px-10 lg:py-32">
+        <div className="absolute inset-0">
+          <Image src="/images/atelier-bancada.jpg" alt="Bancada do atelier" fill className="object-cover" sizes="100vw" />
+          <div className="absolute inset-0 bg-black/85" />
+        </div>
+        <div className="relative z-10 mx-auto flex max-w-[1400px] flex-col items-center gap-8 text-center">
+          <p className="text-[10px] uppercase tracking-ultra-wide text-accent">Próximo passo</p>
+          <h2 className="max-w-2xl font-serif text-3xl text-white lg:text-5xl">Envie fotos. Receba uma avaliação.</h2>
           <Link
-            href={whatsappLink("Olá! Gostaria de uma avaliação.")}
+            href={whatsappLink("Olá! Gostaria de enviar fotos da minha peça para avaliação.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="animate-on-scroll group inline-flex items-center gap-3 bg-primary-foreground px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-primary transition-all duration-500 hover:bg-primary-foreground/90"
+            className="group inline-flex items-center gap-3 bg-accent px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-accent-foreground transition-colors hover:bg-accent/90"
           >
-            <span>Enviar fotos via WhatsApp</span>
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            >
-              <path
-                d="M1 7H13M13 7L7 1M13 7L7 13"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <span>Enviar fotos pelo WhatsApp</span>
+            <ArrowIcon />
           </Link>
         </div>
       </section>

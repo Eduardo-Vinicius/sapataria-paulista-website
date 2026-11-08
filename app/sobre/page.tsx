@@ -6,6 +6,10 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Shield, Target, Eye, Wrench } from "lucide-react"
 import { FounderStory } from "@/components/home/founder-story"
 import { PartnershipStory } from "@/components/home/partnership-story"
+import { Timeline } from "@/components/sobre/timeline"
+import { FounderVideo } from "@/components/sobre/founder-video"
+import { Team } from "@/components/sobre/team"
+import { FACTS } from "@/lib/content/site-facts"
 import { whatsappLink } from "@/lib/contact"
 
 const values = [
@@ -66,49 +70,13 @@ export default function SobrePage() {
         </div>
       </section>
 
+      <FounderVideo />
+
       <FounderStory />
 
-      <section className="px-6 py-24 lg:px-10 lg:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="animate-on-scroll flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-20">
-            <div className="relative aspect-[4/5] w-full overflow-hidden lg:w-[45%]">
-              <Image
-                src="/images/thiago-retrato.jpg"
-                alt="Retrato de Thiago Landes, fundador da Sapataria Paulista"
-                fill
-                className="object-cover object-[center_20%]"
-                sizes="(max-width: 1024px) 100vw, 45vw"
-              />
-            </div>
-            <div className="flex flex-1 flex-col gap-6">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-accent">Desde a Paulista</p>
-              <h2 className="font-serif text-3xl text-foreground lg:text-5xl">
-                Engraxate. Artesão. Referência.
-              </h2>
-              <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground md:text-[15px]">
-                <p>
-                  Aos 13 anos, Thiago engraxava sapatos na Avenida Paulista.
-                  Ali nasceu o olhar para o couro, o brilho certo e o respeito
-                  por cada peça que chega as suas mãos.
-                </p>
-                <p>
-                  Ao longo de mais de duas décadas, ele transformou esse ofício
-                  em atelier: restauração de tênis de coleção, sapatos sociais,
-                  bolsas Louis Vuitton e Chanel, com equipe dedicada e sede na
-                  Galeria 2001.
-                </p>
-                <p>
-                  A Sapataria Paulista não trabalha com volume. Trabalha com
-                  excelência — o padrão que clientes exigentes reconhecem quando
-                  a peça volta para casa.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Timeline />
 
-      <PartnershipStory />
+      <PartnershipStory variant="full" />
 
       <section className="bg-card/50 px-6 py-24 lg:px-10 lg:py-32">
         <div className="mx-auto max-w-[1400px]">
@@ -129,20 +97,20 @@ export default function SobrePage() {
               </h2>
               <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
                 <p>
-                  A nova sede reúne costura, lavanderia de tênis e bancada de
-                  restauração premium em um só andar, ao lado do Conjunto
-                  Nacional.
+                  Ao lado do Conjunto Nacional, a sede reúne costura, higienização
+                  e bancadas de restauração em um só andar.
                 </p>
                 <p>
-                  Ferramentas profissionais, tintas e pigmentos importados e
-                  um processo cuidadoso do início ao fim. Cada etapa é
-                  fotografada e aprovada antes da entrega.
+                  Uma equipe de mais de {FACTS.teamSize} artesãos, fábrica própria e
+                  insumos importados da Itália para bolsas, sapatos e tênis de grife.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <Team />
 
       <section className="px-6 py-24 lg:px-10 lg:py-32">
         <div className="mx-auto max-w-[1400px]">

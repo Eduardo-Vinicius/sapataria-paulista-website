@@ -4,6 +4,9 @@ import "./globals.css"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
+import { StructuredData } from "@/components/structured-data"
+import { Analytics } from "@/components/analytics"
+import { FACTS, SITE_URL } from "@/lib/content/site-facts"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,15 +19,18 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Sapataria Paulista | Thiago Landes — Restauração de Luxo",
-  description:
-    "Atelier de Thiago Landes na Av. Paulista. Restauração premium de tênis, sapatos e bolsas de grife, com mais de duas décadas de experiência.",
-  metadataBase: new URL("https://sapatariapaulista.com.br"),
+  title: {
+    default: "Sapataria Paulista | Restauração de bolsas, sapatos e tênis de luxo",
+    template: "%s | Sapataria Paulista",
+  },
+  description: `Atelier de Thiago Landes na Av. Paulista. Restauração de bolsas Hermès, Chanel e Louis Vuitton, sapatos e tênis de grife, com mais de ${FACTS.yearsOfCraft} anos de ofício.`,
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Sapataria Paulista | Restauração de Luxo",
     description:
-      "Atelier de Thiago Landes na Av. Paulista. Restauração premium de tênis, sapatos e bolsas de grife.",
-    url: "https://sapatariapaulista.com.br",
+      "Atelier de Thiago Landes na Av. Paulista. Restauração de bolsas, sapatos e tênis de grife.",
+    url: SITE_URL,
     siteName: "Sapataria Paulista",
     locale: "pt_BR",
     type: "website",
@@ -59,6 +65,8 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <StructuredData />
+        <Analytics />
       </body>
     </html>
   )
