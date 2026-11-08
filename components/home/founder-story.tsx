@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { whatsappLink } from "@/lib/contact"
 
 const masteryShots = [
   {
@@ -102,7 +103,7 @@ export function FounderStory() {
                 Trajetória completa
               </Link>
               <Link
-                href="https://wa.me/5511999999999"
+                href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-accent px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"

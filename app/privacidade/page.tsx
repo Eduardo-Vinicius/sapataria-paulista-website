@@ -1,6 +1,7 @@
 "use client"
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { PHONE_DISPLAY } from "@/lib/contact"
 
 export default function PrivacidadePage() {
   const ref = useScrollAnimation()
@@ -71,7 +72,7 @@ export default function PrivacidadePage() {
                 6. Contato
               </h2>
               <p>
-                {"Para questoes sobre privacidade, entre em contato: WhatsApp (11) 99999-9999 ou visite-nos na Av. Paulista 2001, São Paulo - SP."}
+                {`Para questões sobre privacidade, entre em contato: WhatsApp ${PHONE_DISPLAY} ou visite-nos na Av. Paulista 2001, São Paulo - SP.`}
               </p>
             </div>
 

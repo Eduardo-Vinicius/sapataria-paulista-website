@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { whatsappLink } from "@/lib/contact"
 
 const steps = [
   {
@@ -200,7 +201,7 @@ export default function ProcessoPage() {
             {"Pronto para restaurar seu item?"}
           </h2>
           <Link
-            href="https://wa.me/5511999999999"
+            href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
             className="animate-on-scroll group inline-flex items-center gap-2 bg-accent px-8 py-4 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"

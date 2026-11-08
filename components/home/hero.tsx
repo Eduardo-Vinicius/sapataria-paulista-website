@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { MessageCircle } from "lucide-react"
+import { whatsappLink } from "@/lib/contact"
 
 export function Hero() {
   const [loaded, setLoaded] = useState(false)
@@ -63,7 +64,7 @@ export function Hero() {
           }`}
         >
           <Link
-            href="https://wa.me/5511999999999"
+            href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-accent px-9 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-accent-foreground transition-all duration-500 hover:bg-accent/90"

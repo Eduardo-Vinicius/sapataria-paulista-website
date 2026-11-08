@@ -2,6 +2,7 @@
 
 import { MessageCircle } from "lucide-react"
 import { useState, useEffect } from "react"
+import { whatsappLink } from "@/lib/contact"
 
 export function WhatsAppButton() {
   const [visible, setVisible] = useState(false)
@@ -15,7 +16,7 @@ export function WhatsAppButton() {
 
   return (
     <a
-      href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20uma%20avalia%C3%A7%C3%A3o."
+      href={whatsappLink("Olá! Gostaria de uma avaliação.")}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Enviar mensagem no WhatsApp"

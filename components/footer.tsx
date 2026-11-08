@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Instagram, MessageCircle } from "lucide-react"
+import { whatsappLink, INSTAGRAM_URL } from "@/lib/contact"
 
 export function Footer() {
   return (
@@ -68,7 +69,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <Link
-                href="https://wa.me/5511999999999"
+                href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center border border-border/50 text-muted-foreground transition-all duration-300 hover:border-foreground/30 hover:text-foreground"
@@ -77,7 +78,7 @@ export function Footer() {
                 <MessageCircle className="h-4 w-4" />
               </Link>
               <Link
-                href="https://instagram.com/sapatariapaulista"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center border border-border/50 text-muted-foreground transition-all duration-300 hover:border-foreground/30 hover:text-foreground"

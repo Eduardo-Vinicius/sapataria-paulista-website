@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Camera, MessageCircle, Clock, CheckCircle } from "lucide-react"
+import { whatsappLink } from "@/lib/contact"
 
 const pricingTiers = [
   {
@@ -147,7 +148,7 @@ export default function AvaliacaoPage() {
           </div>
           <div className="mt-12 flex justify-center">
             <Link
-              href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20enviar%20fotos%20para%20avalia%C3%A7%C3%A3o."
+              href={whatsappLink("Olá! Gostaria de enviar fotos para avaliação.")}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 bg-accent px-8 py-4 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"
@@ -217,7 +218,7 @@ export default function AvaliacaoPage() {
                   ))}
                 </ul>
                 <Link
-                  href="https://wa.me/5511999999999"
+                  href={whatsappLink()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-auto pt-2 text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-accent"

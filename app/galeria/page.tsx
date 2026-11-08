@@ -6,6 +6,7 @@ import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { ComparisonSlider } from "@/components/comparison-slider"
 import { X } from "lucide-react"
+import { whatsappLink } from "@/lib/contact"
 
 const categories = ["Todos", "Tênis", "Sapatos", "Couro", "Bolsas", "Atelier"] as const
 type Category = (typeof categories)[number]
@@ -269,7 +270,7 @@ export default function GaleriaPage() {
               <h3 className="font-serif text-2xl text-foreground">{selectedItem.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{selectedItem.work}</p>
               <Link
-                href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vi%20um%20caso%20parecido%20na%20galeria%20e%20gostaria%20de%20enviar%20fotos."
+                href={whatsappLink("Olá! Vi um caso parecido na galeria e gostaria de enviar fotos.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-2 self-start bg-accent px-6 py-3 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"

@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { MapPin, Clock, MessageCircle, Instagram, Phone } from "lucide-react"
+import { whatsappLink, PHONE_DISPLAY, INSTAGRAM_URL } from "@/lib/contact"
 
 const contactInfo = [
   {
@@ -19,7 +20,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Telefone",
-    lines: ["(11) 99999-9999", "WhatsApp disponível"],
+    lines: [PHONE_DISPLAY, "WhatsApp disponível"],
   },
 ]
 
@@ -31,8 +32,8 @@ export default function ContatoPage() {
       <section className="relative flex min-h-[55vh] items-end overflow-hidden px-6 pb-16 pt-32 lg:px-10">
         <div className="absolute inset-0">
           <Image
-            src="/images/atelier-bancada.jpg"
-            alt="Atelier Sapataria Paulista"
+            src="/images/oficio-sapato.jpg"
+            alt="Acabamento artesanal de sapato no atelier Sapataria Paulista"
             fill
             className="object-cover"
             priority
@@ -90,7 +91,7 @@ export default function ContatoPage() {
                 </p>
                 <div className="flex gap-3">
                   <Link
-                    href="https://instagram.com"
+                    href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-10 w-10 items-center justify-center border border-border text-muted-foreground transition-all hover:border-accent hover:text-accent"
@@ -99,7 +100,7 @@ export default function ContatoPage() {
                     <Instagram className="h-4 w-4" />
                   </Link>
                   <Link
-                    href="https://wa.me/5511999999999"
+                    href={whatsappLink()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-10 w-10 items-center justify-center border border-border text-muted-foreground transition-all hover:border-accent hover:text-accent"
@@ -136,7 +137,7 @@ export default function ContatoPage() {
                   minutos no horário comercial.
                 </p>
                 <Link
-                  href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20uma%20avalia%C3%A7%C3%A3o."
+                  href={whatsappLink("Olá! Gostaria de uma avaliação.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group mt-6 inline-flex items-center gap-2 bg-accent px-6 py-3 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90"
@@ -177,7 +178,19 @@ export default function ContatoPage() {
 
               <form
                 className="animate-on-scroll flex flex-col gap-6"
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  const data = new FormData(e.currentTarget)
+                  const message = [
+                    "Olá! Vim pelo site da Sapataria Paulista.",
+                    `Nome: ${data.get("name") || "-"}`,
+                    `E-mail: ${data.get("email") || "-"}`,
+                    `Telefone: ${data.get("phone") || "-"}`,
+                    "",
+                    String(data.get("message") || ""),
+                  ].join("\n")
+                  window.open(whatsappLink(message), "_blank", "noopener,noreferrer")
+                }}
               >
                 <div className="flex flex-col gap-2">
                   <label
@@ -188,7 +201,9 @@ export default function ContatoPage() {
                   </label>
                   <input
                     id="name"
+                    name="name"
                     type="text"
+                    required
                     placeholder="Seu nome completo"
                     className="border border-border bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors"
                   />
@@ -202,6 +217,7 @@ export default function ContatoPage() {
                   </label>
                   <input
                     id="email"
+                    name="email"
                     type="email"
                     placeholder="seu@email.com"
                     className="border border-border bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors"
@@ -216,6 +232,7 @@ export default function ContatoPage() {
                   </label>
                   <input
                     id="phone"
+                    name="phone"
                     type="tel"
                     placeholder="(11) 99999-9999"
                     className="border border-border bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors"
@@ -230,6 +247,8 @@ export default function ContatoPage() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
+                    required
                     rows={5}
                     placeholder="Descreva seu item e o tipo de serviço desejado..."
                     className="border border-border bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-accent focus:outline-none transition-colors resize-none"
@@ -239,7 +258,7 @@ export default function ContatoPage() {
                   type="submit"
                   className="group inline-flex items-center justify-center gap-2 bg-accent px-8 py-4 text-xs uppercase tracking-[0.2em] text-accent-foreground transition-all duration-300 hover:bg-accent/90 self-start"
                 >
-                  <span>Enviar mensagem</span>
+                  <span>Enviar pelo WhatsApp</span>
                   <svg
                     width="14"
                     height="14"
@@ -262,19 +281,26 @@ export default function ContatoPage() {
         </div>
       </section>
 
-      {/* Map placeholder */}
-      <section className="relative h-[400px] bg-card">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex flex-col items-center gap-4 text-center">
-            <MapPin className="h-8 w-8 text-accent" />
-            <p className="font-serif text-xl text-foreground">
-              Av. Paulista 2001
-            </p>
-            <p className="text-sm text-muted-foreground">
-              São Paulo, SP — Galeria 2001
-            </p>
+      <section className="relative h-[420px] bg-card">
+        <iframe
+          title="Mapa da Sapataria Paulista na Av. Paulista, 2001"
+          src="https://www.google.com/maps?q=Av.+Paulista,+2001+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP,+01311-300&output=embed"
+          className="absolute inset-0 h-full w-full border-0 [filter:grayscale(1)_invert(0.92)_contrast(0.9)]"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Av.+Paulista,+2001+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute bottom-6 left-6 flex items-center gap-4 border border-border/60 bg-background/90 px-5 py-4 backdrop-blur transition-colors hover:border-accent/50"
+        >
+          <MapPin className="h-5 w-5 shrink-0 text-accent" />
+          <div>
+            <p className="font-serif text-lg text-foreground">Av. Paulista, 2001</p>
+            <p className="text-xs text-muted-foreground">Galeria 2001 · São Paulo, SP · Abrir no Maps</p>
           </div>
-        </div>
+        </a>
       </section>
     </div>
   )

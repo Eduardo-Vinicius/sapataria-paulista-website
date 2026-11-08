@@ -6,6 +6,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Shield, Target, Eye, Wrench } from "lucide-react"
 import { FounderStory } from "@/components/home/founder-story"
 import { PartnershipStory } from "@/components/home/partnership-story"
+import { whatsappLink } from "@/lib/contact"
 
 const values = [
   {
@@ -39,27 +40,29 @@ export default function SobrePage() {
 
   return (
     <div ref={ref}>
-      <section className="relative flex min-h-[70vh] items-end overflow-hidden px-6 pb-16 pt-32 lg:px-10 lg:pb-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/thiago-65.jpg"
-            alt="Thiago Landes no atelier"
-            fill
-            className="object-cover object-[center_25%]"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40" />
-        </div>
-        <div className="relative z-10 mx-auto w-full max-w-[1400px]">
-          <p className="animate-on-scroll text-[10px] uppercase tracking-[0.4em] text-accent">Sobre</p>
-          <h1 className="animate-on-scroll mt-4 font-serif text-4xl text-white lg:text-7xl">
-            Nossa história
-          </h1>
-          <p className="animate-on-scroll mt-6 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
-            A Sapataria Paulista é a trajetória de Thiago Landes: da Avenida
-            Paulista ao atelier de restauração de luxo na Galeria 2001.
-          </p>
+      <section className="px-6 pb-16 pt-32 lg:px-10 lg:pb-24 lg:pt-40">
+        <div className="mx-auto grid max-w-[1400px] items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+          <div className="order-2 lg:order-1">
+            <p className="animate-on-scroll text-[10px] uppercase tracking-[0.4em] text-accent">Sobre</p>
+            <h1 className="animate-on-scroll mt-4 font-serif text-4xl text-foreground lg:text-7xl">
+              Nossa história
+            </h1>
+            <p className="animate-on-scroll mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              A Sapataria Paulista é a trajetória de Thiago Landes: da Avenida
+              Paulista ao atelier de restauração de luxo na Galeria 2001.
+            </p>
+          </div>
+          <div className="animate-on-scroll relative order-1 mx-auto aspect-[4/5] w-full max-w-[480px] overflow-hidden lg:order-2 lg:max-w-none">
+            <Image
+              src="/images/thiago-65.jpg"
+              alt="Thiago Landes restaurando uma bolsa no atelier"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 1024px) 480px, 40vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          </div>
         </div>
       </section>
 
@@ -188,7 +191,7 @@ export default function SobrePage() {
               Contato
             </Link>
             <Link
-              href="https://wa.me/5511999999999"
+              href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center border border-white/20 px-8 py-4 text-xs uppercase tracking-[0.2em] text-white/80 transition-all duration-300 hover:border-white/40 hover:text-white"

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { whatsappLink } from "@/lib/contact"
 
 const services = [
   {
@@ -142,7 +143,7 @@ function ServiceCard({
         </div>
 
         <Link
-          href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20avaliar%20meu%20item."
+          href={whatsappLink("Olá! Gostaria de avaliar meu item.")}
           target="_blank"
           rel="noopener noreferrer"
           className="group mt-auto inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
@@ -178,8 +179,8 @@ export default function ServiçosPage() {
       <section className="relative flex min-h-[65vh] items-end overflow-hidden px-6 pb-20 pt-36 lg:px-10">
         <div className="absolute inset-0">
           <Image
-            src="/images/oficio-bolsa-costura.jpg"
-            alt="Restauração artesanal de bolsa de grife"
+            src="/images/oficio-chanel.jpg"
+            alt="Restauração artesanal de bolsa Chanel"
             fill
             className="object-cover"
             priority
@@ -228,7 +229,7 @@ export default function ServiçosPage() {
                 por Thiago Landes.
               </p>
               <Link
-                href="https://wa.me/5511999999999"
+                href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-accent transition-colors hover:text-foreground"
@@ -328,7 +329,7 @@ export default function ServiçosPage() {
             {"Envie fotos do seu item e receba uma avaliação em minutos."}
           </h2>
           <Link
-            href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20uma%20avalia%C3%A7%C3%A3o."
+            href={whatsappLink("Olá! Gostaria de uma avaliação.")}
             target="_blank"
             rel="noopener noreferrer"
             className="animate-on-scroll group inline-flex items-center gap-3 bg-primary-foreground px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-primary transition-all duration-500 hover:bg-primary-foreground/90"

@@ -19,7 +19,17 @@ export const metadata: Metadata = {
   title: "Sapataria Paulista | Thiago Landes — Restauração de Luxo",
   description:
     "Atelier de Thiago Landes na Av. Paulista. Restauração premium de tênis, sapatos e bolsas de grife, com mais de duas décadas de experiência.",
-  generator: "v0.app",
+  metadataBase: new URL("https://sapatariapaulista.com.br"),
+  openGraph: {
+    title: "Sapataria Paulista | Restauração de Luxo",
+    description:
+      "Atelier de Thiago Landes na Av. Paulista. Restauração premium de tênis, sapatos e bolsas de grife.",
+    url: "https://sapatariapaulista.com.br",
+    siteName: "Sapataria Paulista",
+    locale: "pt_BR",
+    type: "website",
+    images: [{ url: "/images/og-sapataria-paulista.jpg", width: 1200, height: 630 }],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
+import { whatsappLink } from "@/lib/contact"
 
 const navLinks = [
   { href: "/servicos", label: "Serviços" },
@@ -66,7 +67,7 @@ export function Header() {
 
           {/* Desktop CTA */}
           <Link
-            href="https://wa.me/5511999999999"
+            href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden items-center gap-2 rounded-full border border-accent/60 bg-accent/10 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-accent/20 lg:inline-flex"
@@ -119,7 +120,7 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="https://wa.me/5511999999999"
+            href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
